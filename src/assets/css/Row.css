@@ -27,3 +27,16 @@
 .row_poster_large {
   max-height: 250px;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+h2 {
+  display: inline;
+  margin-right: 5px;
+}
+.title_row {
+  text-align: center;
+}

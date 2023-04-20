@@ -1,6 +1,7 @@
 import axios from "./axios.js";
 import React, { useEffect, useState } from "react";
-import "./Row.css";
+import "./assets/css/Row.css";
+import vector from "./assets/images/Vector.png";
 
 function Row({ title, fetchUrl, large = false }) {
   const [movie, setMovie] = useState([]);
@@ -17,7 +18,12 @@ function Row({ title, fetchUrl, large = false }) {
   }, [fetchUrl]);
   return (
     <div className="row">
-      <h2>{title}</h2>
+      <div className="tittle_row">
+        <a href={`search.html/search?genre=${title}`}>
+          <h2>{title}</h2>
+          <img src={`${vector}`} alt="Vector" />
+        </a>
+      </div>
       <div className="row_posters">
         {movie.map((movie) => (
           <img
