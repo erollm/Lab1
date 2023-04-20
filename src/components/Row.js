@@ -1,7 +1,7 @@
-import axios from "./axios.js";
+import axios from "../axios.js";
 import React, { useEffect, useState } from "react";
-import "./assets/css/Row.css";
-import vector from "./assets/images/Vector.png";
+import "../assets/css/Row.css";
+import vector from "../assets/images/Vector.png";
 
 function Row({ title, fetchUrl, large = false }) {
   const [movie, setMovie] = useState([]);
@@ -11,11 +11,11 @@ function Row({ title, fetchUrl, large = false }) {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
       setMovie(request.data.results);
-      console.log(request);
-      return request;
+      console.log(`${request} - ${title}`);
+      return;
     }
     fetchData();
-  }, [fetchUrl]);
+  }, [0]);
   return (
     <div className="row">
       <div className="tittle_row">
