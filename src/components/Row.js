@@ -15,11 +15,11 @@ function Row({ title, fetchUrl, large = false }) {
       return;
     }
     fetchData();
-  }, [0]);
+  }, [title, fetchUrl]);
   return (
     <div className="row">
       <div className="tittle_row">
-        <a href={`search.html/search?genre=${title}`}>
+        <a href={`/search?genre=${title}`}>
           <h2>{title}</h2>
           <img src={`${vector}`} alt="Vector" />
         </a>

@@ -1,4 +1,12 @@
+body {
+  margin: 0;
+}
 .header {
   height: 100%;
   width: auto;
+}
+.homeScreen {
+  margin: 0;
+  background: #111;
+  font-family: "Libre Franklin", sans-serif;
 }

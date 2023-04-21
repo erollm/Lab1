@@ -1,9 +1,8 @@
 import React from "react";
-import "./assets/css/HomeScreen.css";
-import Banner from "./components/Banner.js";
-import Row from "./components/Row";
-import request from "./request.js";
-import axios from "./axios.js";
+import "../assets/css/HomeScreen.css";
+import Banner from "./Banner.js";
+import Row from "./Row";
+import request from "../request.js";
 
 export default function HomeScreen() {
   return (
