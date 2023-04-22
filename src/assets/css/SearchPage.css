@@ -3,5 +3,26 @@ body {
 }
 
 .search_page {
+  height: auto;
   color: white;
+  margin: 5%;
+  width: 90%;
+}
+
+.row_posters_search_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row_posters_search_item {
+  object-fit: contain;
+  flex-basis: 10%;
+  max-width: 10%;
+  padding: 10px;
+  transition: transform 450ms;
+}
+
+.row_posters_search_item:hover {
+  transform: scale(1.08);
+  opacity: 1;
 }
