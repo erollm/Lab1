@@ -70,7 +70,7 @@ function SearchPage() {
             Results for : {search ? search : genre}
           </h2>
         ) : (
-          <h2 className="search_page_title">Search a movie</h2>
+          <h2 className="search_page_title">SEARCH A MOVIE</h2>
         )}
 
         <div className="search_page_movies">
