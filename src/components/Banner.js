@@ -36,7 +36,7 @@ export default function Banner() {
         <h1>{movie.title}</h1>
         <div className="banner_buttons">
           <button className="banner_button play_button">Play</button>
-          <button className="banner_button info_button">More Info</button>
+          <a href="/MoviePage"><button className="banner_button info_button">More Info</button></a>
         </div>
       </div>
       <div className="banner_Fade"></div>
