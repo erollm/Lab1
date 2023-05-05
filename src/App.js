@@ -7,6 +7,11 @@ import Navbar from "./Navbar";
 import Profile from "./components/Profile";
 import MoviePage from "./components/MoviePage";
 import Categories from "./components/Categories";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import MyLibrary from "./components/MyLibrary";
+
+
 function App() {
   // return (
   //   <>
@@ -41,6 +46,15 @@ function App() {
             break
         case "/Profile":
             Component = <Profile />
+            break
+        case "/Login":
+            Component = <Login />
+            break
+        case "/Signup":
+            Component = <Signup />
+            break
+        case "/MyLibrary":
+            Component = <MyLibrary />
             break
     }
     return (
