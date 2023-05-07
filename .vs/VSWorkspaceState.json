@@ -2,12 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets",
-    "\\src\\assets\\bootstrap",
-    "\\src\\assets\\css",
-    "\\src\\assets\\images",
-    "\\src\\components"
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\assets",
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }

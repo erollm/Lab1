@@ -8,10 +8,11 @@
     padding: 10px 0px;
 }
 .inputBox {
+    box-sizing: content-box;
     display: flex;
     flex-direction: column;
     width: 350px;
-    padding: 20px 40px;
+    padding: 35px 40px;
     border-radius: 10px;
     background-color: rgb(70, 70, 70, 0.9);
     backdrop-filter: blur(10px);
@@ -38,13 +39,21 @@
     background-color: red;
     font-size: 17px;
 }
-.checkMark{
+.checkMark {
     display: flex;
-    align-items: center;
+    align-items: start;
+    margin-top: 15px;
 }
+    .checkMark input {
+        height: 20px;
+        margin-top: 0px;
+        margin-right: 5px;
+        background-color: #eee;
+        margin-bottom: 10px;
+    }
 .inputFooter{
+    margin-top: 30px;
     display: flex;
-    align-items: center;
 }
 .inputFooter p{
     margin-right: 5px;
@@ -53,4 +62,7 @@
 .space-between{
     display: flex;
     justify-content: space-between;
+}
+.space-between input{
+    width: 48%;
 }
