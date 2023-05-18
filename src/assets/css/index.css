@@ -89,7 +89,6 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   pointer-events: auto;
-
 }
 .Categories .categoriesList ul::-webkit-scrollbar, .Categories .categoriesResults .categoriesResultsContainer::-webkit-scrollbar{
   width: 6px !important;
@@ -250,5 +249,14 @@ body {
 }
 .searchPageContainer{
   margin-top: 134px;
-
+}
+.searchPageResults{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(209px, 1fr));
+  gap: 48px;
+}
+.searchPageResults img{
+  width: 209px;
+  height: 300px;
+  border: 1px solid white;
 }
