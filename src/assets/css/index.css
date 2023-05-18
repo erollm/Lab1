@@ -55,7 +55,7 @@ body {
 }
 .profile .profileWatchedMovies{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(139px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(139px, 1fr));
   gap: 35px;
 }
 .profile .profileWatchedMovies img{
@@ -63,7 +63,17 @@ body {
   height: 200px;
   border: 1px solid white;
 }
-
+.profile .profileWatchedContinue{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(139px, 1fr));
+  gap: 35px;
+  justify-content: flex-start;
+}
+.profile .profileWatchedContinue img{
+  width: 139px;
+  height: 200px;
+  border: 1px solid white;
+}
 .CategoriesContainer{
   padding-top: 134px;
   height: 100vh;
