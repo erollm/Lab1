@@ -15,6 +15,8 @@ body {
 .navbar{
   padding: 35px 0 35px 0;
   background: transparent;
+  width: 100%;
+  z-index: 2;
 }
 .navbar .navbar-brand img{
   width: 60px;
@@ -24,9 +26,12 @@ body {
   width: 35px;
   height: 35px;
 }
-
+.profile{
+  height: 100%;
+}
 .profileContainer{
   display: flex;
+  margin-top: 169px
 }
 .profilePersonalInfo{
   text-align: center;
@@ -44,10 +49,10 @@ body {
   height: 200px;
   border: 1px solid white;
 }
-.CategoriesContainer{
-  margin-top: 50px;
 
-  height: 90vh;
+.CategoriesContainer{
+  padding-top: 134px;
+  height: 100vh;
 }
 .Categories .categoriesList{
   height: 100%;
@@ -104,18 +109,23 @@ body {
   border: 1px solid white;
 }
 .MoviePageBg{
-  height: 90vh;
+  height: 100%;
   background-image: url("../images/shanks.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .MoviePageBgShadow{
   background: rgba(0,0,0,0.7);
-  height: 90vh;
+  height: 100%;
 }
 .MoviePage{
   max-width: 1560px;
   margin: 0 auto;
+}
+.MoviePageContainer{
+  padding: 169px 0 100px 0;
+
 }
 .MoviePageContainer img{
   width: 350px;

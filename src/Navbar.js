@@ -6,7 +6,7 @@ import {ReactComponent as UserIcon} from "./assets/icons/user.svg";
 
 const Navbar = () => {
     return(
-        <nav className="navbar navbar-expand-lg 4 ">
+        <nav className="navbar navbar-expand-lg position-absolute top-0 left-0">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/HomeScreen"><img src={Logo} alt=""/></a>
                 <button className="navbar-toggler" type="button"style={{background: 'white' }} data-bs-toggle="collapse"

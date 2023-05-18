@@ -32,9 +32,6 @@ function App() {
         case "/HomeScreen":
             Component = <HomeScreen />
             break
-        case "/MyLibray":
-            Component = <MyLibray />
-            break
         case "/SearchPage":
             Component = <SearchPage />
             break
