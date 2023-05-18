@@ -3,6 +3,7 @@ import Navbar from "./navbar";
 import "../assets/css/admin.css";
 import Movie from "../assets/icons/movie.png";
 import Users from "../assets/icons/users.png";
+import Chart from "react-apexcharts";
 
 function index() {
   return (
@@ -46,6 +47,26 @@ function index() {
           <div class="charts-card">
             <h2 class="chart-title">Users logged in</h2>
             <div id="area-chart"></div>
+            <Chart
+              type="donut"
+              height={350}
+              series={[45, 67, 89, 34, 43]}
+              options={{
+                labels: ["USA", "China", "Russia", "India", "UK"],
+
+                plotOptions: {
+                  pie: {
+                    donut: {
+                      labels: { show: false, fontSize: 30, color: "#fff" },
+                    },
+                  },
+                },
+
+                dataLabels: {
+                  enabled: true,
+                },
+              }}
+            />
           </div>
         </div>
       </main>
