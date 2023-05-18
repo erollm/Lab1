@@ -13,12 +13,14 @@ const Profile = () =>{
         <div className="profile container ">
             <div className="profileContainer row">
                 <div className="profilePersonalInfo col-lg-4">
-                    <span className="material-symbols-outlined">
-                        account_circle
-                    </span>
-                    <h2>Tanjiro Kamado</h2>
-                    <h3 className="text-secondary">@tanjirokamado</h3>
-                    <a href="#" className="text-secondary">Edit</a>
+                    <div className="profilePersonalInfoImg">
+                        <span className="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <div className="profilePersonalInfoName">
+                        <h2>Tanjiro Kamado</h2>
+                        <h3>@tanjirokamado</h3>
+                        <a href="#">Edit</a>
+                    </div>
                 </div>
                 <div className="profileWatched col-lg-8">
                     <h1>Watched</h1>

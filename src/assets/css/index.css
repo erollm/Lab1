@@ -35,8 +35,23 @@ body {
 .profilePersonalInfo{
   text-align: center;
 }
-.profilePersonalInfo span{
+.profilePersonalInfo .profilePersonalInfoImg span{
   font-size: 250px;
+}
+.profilePersonalInfo .profilePersonalInfoName h2{
+  margin: 0 !important;
+  font-size: 30px;
+}
+.profilePersonalInfo .profilePersonalInfoName h3{
+  margin: 10px 0;
+  font-size: 22px;
+  color: #B8B8B8;
+}
+.profilePersonalInfo .profilePersonalInfoName a{
+  margin: 10px 0;
+  font-size: 20px;
+  text-decoration: underline;
+  color: #868686;
 }
 .profile .profileWatchedMovies{
   display: grid;
