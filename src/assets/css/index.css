@@ -207,3 +207,34 @@ body {
 .MoviePageButtons button:hover .MoviePagePlayButton{
   fill: black;
 }
+.profileActivities .bloc-tabs {
+  display: flex;
+  border-bottom: 2px solid #E50914;
+  margin-bottom: 20px;
+}
+.profileActivities .tabs {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: -2px;
+  padding: 16px 41px;
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+.profileActivities .active-tabs{
+  border: 2px solid #E50914;
+}
+.profileActivities button {
+  border: none;
+  font-size: 24px;
+}
+.profileActivities .content {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.profileActivities .active-content {
+  display: block;
+}
