@@ -10,7 +10,7 @@ import Categories from "./components/Categories";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import MyLibrary from "./components/MyLibrary";
-
+import Admin from "./admin/index.jsx";
 
 function App() {
   // return (
@@ -23,46 +23,49 @@ function App() {
   //     </Routes>
   //   </>
   // );
-    let Component
+  let Component;
 
-    switch (window.location.pathname) {
-        case "/":
-            Component = <HomeScreen />
-            break
-        case "/HomeScreen":
-            Component = <HomeScreen />
-            break
-        case "/SearchPage":
-            Component = <SearchPage />
-            break
-        case "/WatchLater":
-            Component = <WatchLater />
-            break
-        case "/MoviePage":
-            Component = <MoviePage />
-            break
-        case "/Categories":
-            Component = <Categories />
-            break
-        case "/Profile":
-            Component = <Profile />
-            break
-        case "/Login":
-            Component = <Login />
-            break
-        case "/Signup":
-            Component = <Signup />
-            break
-        case "/MyLibrary":
-            Component = <MyLibrary />
-            break
-    }
-    return (
-        <>
-            <Navbar />
-            {Component}
-        </>
-    )
+  switch (window.location.pathname) {
+    case "/":
+      Component = <HomeScreen />;
+      break;
+    case "/HomeScreen":
+      Component = <HomeScreen />;
+      break;
+    case "/SearchPage":
+      Component = <SearchPage />;
+      break;
+    case "/WatchLater":
+      Component = <WatchLater />;
+      break;
+    case "/MoviePage":
+      Component = <MoviePage />;
+      break;
+    case "/Categories":
+      Component = <Categories />;
+      break;
+    case "/Profile":
+      Component = <Profile />;
+      break;
+    case "/Login":
+      Component = <Login />;
+      break;
+    case "/Signup":
+      Component = <Signup />;
+      break;
+    case "/MyLibrary":
+      Component = <MyLibrary />;
+      break;
+    case "/admin":
+      Component = <Admin />;
+      break;
+  }
+  return (
+    <>
+      {/* <Navbar /> */}
+      {Component}
+    </>
+  );
 }
 
 export default App;
