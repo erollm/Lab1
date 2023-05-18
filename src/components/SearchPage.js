@@ -10,7 +10,7 @@ import yourName from "../assets/images/covers/yourname.jpg";
 
 function SearchPage() {
   return (
-      <div className="searchPage">
+      <div className="searchPage container">
         <div className="searchPageContainer">
           <div className="searchPageTitle">
             <h2>Results for:</h2>
