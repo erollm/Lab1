@@ -250,6 +250,12 @@ body {
 .searchPageContainer{
   margin-top: 134px;
 }
+.searchPageTitle{
+ margin-bottom: 35px;
+}
+.searchPageTitle h2{
+  font-size: 32px;
+}
 .searchPageResults{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(209px, 1fr));
