@@ -1,5 +1,6 @@
 .admin--panel {
   background-color: #1d2634;
+  display: flex;
 }
 .admin--navbar {
   background-color: #263043;
