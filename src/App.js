@@ -10,7 +10,7 @@ import Categories from "./components/Categories";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import MyLibrary from "./components/MyLibrary";
-
+import Admin from "./admin/index.jsx";
 
 function App() {
   // return (
@@ -23,7 +23,8 @@ function App() {
   //     </Routes>
   //   </>
   // );
-    let Component
+  let Component;
+
 
     switch (window.location.pathname) {
         case "/":
