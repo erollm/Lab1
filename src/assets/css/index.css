@@ -11,7 +11,6 @@ body {
 .container{
   max-width: 1560px;
 }
-
 .navbar{
   padding: 35px 0 35px 0;
   background: transparent;
@@ -125,7 +124,6 @@ body {
 }
 .MoviePageContainer{
   padding: 169px 0 100px 0;
-
 }
 .MoviePageContainer img{
   width: 350px;
