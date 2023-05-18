@@ -57,12 +57,6 @@ function App() {
         case "/MyLibrary":
             Component = <MyLibrary />
             break
-        // case "/Login":
-        //     Component = <Login />
-        //     break
-        // case "/Signup":
-        //     Component = <Signup />
-        //     break
     }
     return (
         <>
