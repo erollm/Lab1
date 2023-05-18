@@ -25,7 +25,9 @@
   margin-top: 30px;
 }
 
-.admin--lists > ul > li > span > a > img {
+.admin--stats--icon,
+.admin--users--icon,
+.admin--movie--icon {
   height: 35px;
   width: auto;
   margin-right: 5px;

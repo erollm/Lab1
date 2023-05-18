@@ -18,7 +18,7 @@ function navbar() {
               <span>
                 <a href="/admin">
                   {" "}
-                  <img src={Stats}></img>
+                  <img src={Stats} class="admin--stats--icon"></img>
                   Stats
                 </a>
               </span>
@@ -27,7 +27,7 @@ function navbar() {
             <li>
               <span>
                 <a href="/admin/users">
-                  <img src={Users}></img>Users
+                  <img src={Users} class="admin--users--icon"></img>Users
                 </a>
               </span>
               <hr></hr>
@@ -35,7 +35,7 @@ function navbar() {
             <li>
               <span>
                 <a href="/admin/movies">
-                  <img src={Movie}></img>Movies
+                  <img src={Movie} class="admin--movie--icon"></img>Movies
                 </a>
               </span>
               <hr></hr>
