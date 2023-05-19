@@ -22,8 +22,10 @@ const Navbar = () => {
                     </ul>
                     <ul className="navbar-nav mb-2 mb-lg-0" id="navbarListIcon">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/SearchPage"><SearchIcon/></a>
-                            <input type="text"/>
+                            <div className="navbarSearchInput">
+                                <a className="nav-link active" aria-current="page" href="/SearchPage"><SearchIcon/></a>
+                                <input type="text" placeholder="Search" autoFocus/>
+                            </div>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/MyLibrary"><BookmarkIcon/></a>
