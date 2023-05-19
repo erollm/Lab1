@@ -42,11 +42,13 @@
   color: #000;
   mix-blend-mode: screen;
   background-color: #fff;
+  transform: scale(1.1);
 }
 
 .play_button:hover {
   background-color: transparent;
   color: white;
+  transform: scale(1.1);
 }
 
 .banner_Fade {
