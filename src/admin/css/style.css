@@ -34,12 +34,13 @@
 }
 
     .AddUser input, select {
+        padding: 5px;
         margin-bottom: 20px;
         height: 40px;
         border-radius: 5px;
         border: 0;
     }
-.AddUser textarea{
+.AddUser > textarea{
     margin-bottom: 20px;
     border-radius: 5px;
     border: 0;
@@ -76,3 +77,47 @@
 td img{
     height: 100px;
 }
+.editImage{
+    display: block;
+    width: 200px;
+    height: auto;
+    opacity: 0.3;
+}
+.custom-file-uploadEdit{
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.custom-file-uploadEdit:hover{
+    border: 1px solid #0d6efd;
+}
+.editUserCol{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.editUserSCol{
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+}
+.FColTextArea{
+    height: 65%;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+}
+.editImageIcon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; 
+    font-size: 25px;
+}
+.custom-file-uploadEdit:hover .editImageIcon {
+    color: #0d6efd;
+  }
