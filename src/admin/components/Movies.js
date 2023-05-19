@@ -5,15 +5,16 @@ export default function Users() {
     return (
         <div className="adminContainer">
             <div className="SContainer">
-                <h2>Users</h2>
-                <button className="btn btn-outline-primary addB">Add New User</button>
+                <h2>Movies</h2>
+                <button className="btn btn-outline-primary addB">Add New Movie</button>
                 <table className="table table-hover table-bordered table-dark ">
                     <thead>
                         <tr>
-                            <th scope="col">Username</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Cover</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Length</th>
+                            <th scope="col">Release Date</th>
+                            <th scope="col">Description</th>
                             <th score="col">Actions</th>
                         </tr>
                     </thead>
@@ -35,7 +36,7 @@ export default function Users() {
                         <tr>
                             <td>zgjimg</td>
                             <td>Zgjim</td>
-                            <td>Grajï¿½evci</td>
+                            <td>Grajçevci</td>
                             <td>ab</td>
                             <td><button className="btn btn-outline-warning btn-sm firstB">EDIT</button><button class="btn btn-outline-danger btn-sm">DELETE</button></td>
                         </tr>

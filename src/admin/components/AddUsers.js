@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/style.css";
 
-export default function addUsers(){
+export default function AddUsers(){
     return(
         <div className="adminContainer">
         <div className="SContainer">
