@@ -12,7 +12,7 @@ function index() {
   return (
     <div className="admin--panel">
           <Navbar />
-          <AddMovie />
+          <Movies />
     </div>
   );
 }

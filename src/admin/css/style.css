@@ -73,3 +73,6 @@
   input[type="file"] {
     display: none;
   }
+td img{
+    height: 100px;
+}
