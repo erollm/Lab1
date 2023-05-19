@@ -10,6 +10,7 @@ import weatheringWithYou from "../assets/images/covers/weatheringwithyou.jpg";
 import yourName from "../assets/images/covers/yourname.jpg";
 // import {useState} from "@types/react";
 import { useState } from "react";
+import {ReactComponent as BookmarkIcon} from "../assets/icons/bookmark.svg";
 
 const Profile = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -31,15 +32,21 @@ const Profile = () => {
             <Popup trigger={<button> Edit</button>} position="right center">
                 <div className="profileEditPopup">
                     <div className="profileEditPopupContainer">
-                        <h2>Edit personal info</h2>
+                        <div className="prilfeEditPopupTitle">
+                            <h2>Edit personal info</h2>
+                        </div>
                         <form action="">
                             <div className="profileEditForm row">
                                 <div className="profileEditPrsInfo col-lg-6">
                                     <div className="d-flex">
-                                        <label htmlFor="first_name">Your first name:</label>
-                                        <input type="text" id="first_name" placeholder="Tanjiro"/>
-                                        <label htmlFor="last_name">Your last name:</label>
-                                        <input type="text" id="last_name" placeholder="Kamado"/>
+                                        <div>
+                                            <label htmlFor="first_name">Your first name:</label>
+                                            <input type="text" id="first_name" placeholder="Tanjiro"/>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="last_name">Your last name:</label>
+                                            <input type="text" id="last_name" placeholder="Kamado"/>
+                                        </div>
                                     </div>
                                     <label htmlFor="username">Your username:</label>
                                     <input type="text" id="username" placeholder="tanjirokamado_"/>
@@ -57,6 +64,7 @@ const Profile = () => {
                             </div>
                         </form>
                         <button>Edit</button>
+
                     </div>
                 </div>
             </Popup>
