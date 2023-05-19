@@ -6,38 +6,45 @@
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.SContainer{
+
+.SContainer {
     width: 100%;
     display: flex;
     padding: 40px;
     align-items: center;
     flex-direction: column;
 }
+
 .table {
     margin-top: 20px;
     --bs-table-bg: #1a1a1a;
     border: 1px solid #4d4d4d;
 }
-.firstB{
+
+.firstB {
     margin-right: 10px;
 }
-.AddUser{
+
+.AddUser {
     margin-top: 30px;
     width: 90%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.AddUser input{
-    margin-bottom: 20px;
-    height: 40px;
-    border-radius: 5px;
-    border: 0;
-}
-.addB{
+
+    .AddUser input {
+        margin-bottom: 20px;
+        height: 40px;
+        border-radius: 5px;
+        border: 0;
+    }
+
+.addB {
     margin-top: 30px;
 }
-.editInput{
+
+.editInput {
     border: 0;
     width: 100%;
     border-radius: 2px;

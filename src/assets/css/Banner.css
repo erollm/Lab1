@@ -4,6 +4,9 @@
   background-size: cover;
   color: white;
   object-fit: contain;
+  -webkit-box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
 }
 
 .banner_contents {
@@ -54,4 +57,8 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
+}
+
+.banner_contents > h1 {
+  text-shadow: 2px 1px 8px #000000;
 }
