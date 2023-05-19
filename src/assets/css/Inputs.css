@@ -1,11 +1,21 @@
 
 .inputContainer {
+    height: 100vh;
     font-family: mainFont;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-repeat: repeat;
     background-size: auto;
     padding: 10px 0px;
+}
+.loginbg {
+    background-image: url("../images/shanks.jpg");
+    background-size: cover;
+}
+.signupbg {
+    background-image: url("../images/signupbg.jpg");
+    background-size: cover;
 }
 .inputBox {
     box-sizing: content-box;

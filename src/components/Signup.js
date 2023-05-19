@@ -3,7 +3,7 @@ import "../assets/css/Inputs.css";
 
 export default function Signup() {
     return (
-		<div className="inputContainer">
+		<div className="inputContainer signupbg">
 			<div className="inputBox">
 				<h2>Sign up</h2>
 				<span className="space-between">

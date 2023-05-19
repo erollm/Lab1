@@ -3,7 +3,7 @@ import "../assets/css/Inputs.css";
 
 export default function Login() {
 	return (
-		<div className="inputContainer">
+		<div className="inputContainer loginbg">
 			<div className="inputBox">
 				<h2>Sign in</h2>
 				<input type="email" placeholder="Email"></input>
