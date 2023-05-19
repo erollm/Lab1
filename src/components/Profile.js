@@ -1,3 +1,4 @@
+import Popup from 'reactjs-popup';
 import demonSlayer from "../assets/images/covers/demonslayer.webp";
 import dragonBall from "../assets/images/covers/dragonballbroly.jpg";
 import naruto from "../assets/images/covers/naruto.webp";
@@ -27,7 +28,37 @@ const Profile = () => {
           <div className="profilePersonalInfoName">
             <h2>Tanjiro Kamado</h2>
             <h3>@tanjirokamado</h3>
-            <a href="#">Edit</a>
+            <Popup trigger={<button> Edit</button>} position="right center">
+                <div className="profileEditPopup">
+                    <div className="profileEditPopupContainer">
+                        <h2></h2>
+                        <div className="profileEditForm">
+                            <form action="">
+                                <div className="profileEditPrsInfo">
+                                    <div>
+                                        <label htmlFor="first_name">Your First Name:</label>
+                                        <input type="text" id="first_name"/>
+                                        <label htmlFor="last_name">Your Last Name:</label>
+                                        <input type="text" id="last_name"/>
+                                    </div>
+                                    <label htmlFor="username"></label>
+                                    <input type="text" id="username"/>
+                                    <label htmlFor="email"></label>
+                                    <input type="text" id="email"/>
+                                </div>
+                                <div className="profileEditPwd">
+                                    <label htmlFor="old_pwd"></label>
+                                    <input type="text" id="old_pwd"/>
+                                    <label htmlFor="new_pwd"></label>
+                                    <input type="text" id="new_pwd"/>
+                                    <label htmlFor="confirm_new_pwd"></label>
+                                    <input type="text" id="confirm_new_pwd"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </Popup>
           </div>
         </div>
         <div className="profileActivities col-lg-8">
