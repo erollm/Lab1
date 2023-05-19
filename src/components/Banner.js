@@ -35,8 +35,12 @@ export default function Banner() {
       <div className="banner_contents">
         <h1>{movie.title}</h1>
         <div className="banner_buttons">
-          <button className="banner_button play_button">Play</button>
-          <a href="/MoviePage"><button className="banner_button info_button">More Info</button></a>
+          <a href="/">
+            <button className="banner_button play_button">Play</button>
+          </a>
+          <a href="/MoviePage">
+            <button className="banner_button info_button">More Info</button>
+          </a>
         </div>
       </div>
       <div className="banner_Fade"></div>

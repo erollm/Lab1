@@ -42,6 +42,53 @@ function index() {
           <div class="charts-card">
             <h2 class="chart-title">Top 5 Movies</h2>
             <div id="bar-chart"></div>
+            <Chart
+              type="bar"
+              height={350}
+              series={[
+                {
+                  data: [200, 78, 38, 87, 76],
+                },
+              ]}
+              options={{
+                title: {
+                  text: "BEST GENRE",
+                  style: {
+                    color: "#FFFFFF",
+                  },
+                },
+                chart: {
+                  stacked: true,
+                },
+                xaxis: {
+                  categories: [
+                    "Action",
+                    "Comedy",
+                    "Horror",
+                    "Fantasy",
+                    "Drama",
+                  ],
+                  labels: {
+                    style: {
+                      colors: [
+                        "#FFFFFF",
+                        "#FFFFFF",
+                        "#FFFFFF",
+                        "#FFFFFF",
+                        "#FFFFFF",
+                      ],
+                    },
+                  },
+                },
+                yaxis: {
+                  labels: {
+                    style: {
+                      colors: "#FFFFFF",
+                    },
+                  },
+                },
+              }}
+            />
           </div>
 
           <div class="charts-card">
@@ -53,17 +100,22 @@ function index() {
               series={[45, 67, 89, 34, 43]}
               options={{
                 labels: ["USA", "China", "Russia", "India", "UK"],
-
+                legend: {
+                  labels: {
+                    colors: ["#FFFFFF"],
+                  },
+                },
                 plotOptions: {
                   pie: {
                     donut: {
-                      labels: { show: false, fontSize: 30, color: "#fff" },
+                      labels: { show: false, fontSize: 30, color: "#FFFFFF" },
                     },
                   },
                 },
 
                 dataLabels: {
                   enabled: true,
+                  colors: "#FFFFFF",
                 },
               }}
             />

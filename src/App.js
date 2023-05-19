@@ -62,7 +62,8 @@ function App() {
   }
   return (
     <>
-      <Navbar />
+      {/* thirrja e navbar kur nuk eshte ne admin panel      */}
+      {window.location.pathname !== "/admin" && <Navbar />}
       {Component}
     </>
   );
