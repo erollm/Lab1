@@ -66,11 +66,13 @@ body {
   font-size: 22px;
   color: #B8B8B8;
 }
-.profilePersonalInfo .profilePersonalInfoName a{
+.profilePersonalInfo .profilePersonalInfoName > button{
   margin: 10px 0;
   font-size: 20px;
   text-decoration: underline;
   color: #868686;
+  border: none;
+  background: none;
 }
 .profile .profileWatchedMovies{
   display: grid;
@@ -266,6 +268,75 @@ body {
 .profileActivities .active-content {
   display: block;
 }
+.profileEditPopup{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+}
+.profileEditPopupContainer{
+  margin: 70px auto;
+  padding: 60px;
+  position: relative;
+  transition: all 2s ease-in-out;
+  width: 1201px;
+  height: 760px;
+  background: linear-gradient(144.5deg, rgba(134, 134, 134, 0.4) 0.61%, rgba(134, 134, 134, 0.04) 100%);
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+}
+.profileEditPopupContainer .profileEditForm, .profileEditPopupContainer .profileEditPrsInfo, .profileEditPopupContainer .profileEditPwd{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.profileEditPopupContainer .profileEditForm{
+  justify-content: space-between;
+}
+.profileEditPopupContainer .profileEditForm > div{
+  width: 45%;
+}
+.profileEditPopupContainer .profileEditForm .profileEditPrsInfo > div{
+  justify-content: space-between;
+}
+.profileEditPopupContainer .profileEditForm .profileEditPrsInfo > div > div{
+  width: 45% !important;
+}
+.profileEditPopupContainer form{
+  margin-top: 70px;
+}
+.profileEditPopupContainer form label{
+  display: block;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.profileEditPopupContainer form input{
+  width: 100%;
+  padding: 12px 22px;
+  background: #666666;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+.profileEditPopupContainer > button{
+  float: right;
+  font-size: 20px;
+  background: #E50914;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 486px;
+  height: 68px;
+  margin-top: 50px;
+}
+.profileEditPopupContainer > button:hover{
+  background: #a5050d;
+}
+
 .searchPageContainer{
   margin-top: 134px;
 
