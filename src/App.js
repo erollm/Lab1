@@ -24,7 +24,7 @@ function App() {
   //   </>
   // );
   let Component;
-
+  
   switch (window.location.pathname) {
     case "/":
       Component = <HomeScreen />;
@@ -67,5 +67,7 @@ function App() {
       {Component}
     </>
   );
+
+
 }
 export default App;
