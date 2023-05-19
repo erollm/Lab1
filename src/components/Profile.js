@@ -31,31 +31,32 @@ const Profile = () => {
             <Popup trigger={<button> Edit</button>} position="right center">
                 <div className="profileEditPopup">
                     <div className="profileEditPopupContainer">
-                        <h2></h2>
-                        <div className="profileEditForm">
-                            <form action="">
-                                <div className="profileEditPrsInfo">
-                                    <div>
-                                        <label htmlFor="first_name">Your First Name:</label>
-                                        <input type="text" id="first_name"/>
-                                        <label htmlFor="last_name">Your Last Name:</label>
-                                        <input type="text" id="last_name"/>
+                        <h2>Edit personal info</h2>
+                        <form action="">
+                            <div className="profileEditForm row">
+                                <div className="profileEditPrsInfo col-lg-6">
+                                    <div className="d-flex">
+                                        <label htmlFor="first_name">Your first name:</label>
+                                        <input type="text" id="first_name" placeholder="Tanjiro"/>
+                                        <label htmlFor="last_name">Your last name:</label>
+                                        <input type="text" id="last_name" placeholder="Kamado"/>
                                     </div>
-                                    <label htmlFor="username"></label>
-                                    <input type="text" id="username"/>
-                                    <label htmlFor="email"></label>
-                                    <input type="text" id="email"/>
+                                    <label htmlFor="username">Your username:</label>
+                                    <input type="text" id="username" placeholder="tanjirokamado_"/>
+                                    <label htmlFor="email">Your email:</label>
+                                    <input type="text" id="email" placeholder="tanjiro@gmail.com"/>
                                 </div>
-                                <div className="profileEditPwd">
-                                    <label htmlFor="old_pwd"></label>
-                                    <input type="text" id="old_pwd"/>
-                                    <label htmlFor="new_pwd"></label>
-                                    <input type="text" id="new_pwd"/>
-                                    <label htmlFor="confirm_new_pwd"></label>
-                                    <input type="text" id="confirm_new_pwd"/>
+                                <div className="profileEditPwd col-lg-6">
+                                    <label htmlFor="old_pwd">Your old password:</label>
+                                    <input type="text" id="old_pwd" placeholder="Old password"/>
+                                    <label htmlFor="new_pwd">Your new password:</label>
+                                    <input type="text" id="new_pwd" placeholder="New password"/>
+                                    <label htmlFor="confirm_new_pwd">Confirm your new password:</label>
+                                    <input type="text" id="confirm_new_pwd" placeholder="Confirm new password"/>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                        <button>Edit</button>
                     </div>
                 </div>
             </Popup>
