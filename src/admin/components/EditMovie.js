@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'

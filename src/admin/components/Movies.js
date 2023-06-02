@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/style.css";
 import totoro from "../../assets/images/covers/totoro.jpg";
 import weatheringWithYou from "../../assets/images/covers/weatheringwithyou.jpg";
 import yourName from "../../assets/images/covers/yourname.jpg";
