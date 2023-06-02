@@ -14,9 +14,9 @@ function index() {
   return (
     <div className="admin--panel">
       <Navbar />
-      <Stats/>
+      <Users/>
     </div>
-  );
+  )
 }
 
 export default index;

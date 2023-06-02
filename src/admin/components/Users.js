@@ -1,6 +1,14 @@
 import React from "react";
-
+import TableRow from "./TableRow";
+import tempUsers from "../tempUsers";
 export default function Users() {
+   
+    const [users, setUsers] = React.useState(tempUsers.map((user)=> ({...user, editing: false})))
+
+    function editUser(id){
+        setUsers((prevUser) => prevUser.map((user) => user.id === id ? ({...user, editing: true}) : ({...user})))       
+    }
+
     return (
         <div className="adminContainer">
             <div className="SContainer">
@@ -17,27 +25,7 @@ export default function Users() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>erollm</td>
-                            <td>Eroll</td>
-                            <td>Muqkurtaj</td>
-                            <td>em47336@ubt-uni.net</td>
-                            <td><button className="btn btn-outline-success btn-sm firstB">SAVE</button><button class="btn btn-outline-danger btn-sm">DELETE</button></td>
-                        </tr>
-                        <tr>
-                            <td>albanb</td>
-                            <td>Alban</td>
-                            <td>Sahiti</td>
-                            <td>ab</td>
-                            <td><button className="btn btn-outline-warning btn-sm firstB">EDIT</button><button class="btn btn-outline-danger btn-sm">DELETE</button></td>
-                        </tr>
-                        <tr>
-                            <td>zgjimg</td>
-                            <td>Zgjim</td>
-                            <td>Graj�evci</td>
-                            <td>ab</td>
-                            <td><button className="btn btn-outline-warning btn-sm firstB">EDIT</button><button class="btn btn-outline-danger btn-sm">DELETE</button></td>
-                        </tr>
+                        {users.map(user=> <TableRow key={user.id} username={user.username} firstname={user.firstname} lastname={user.lastname} email={user.email} handleClick={()=> editUser(user.id)} editing={user.editing}/>)}
                     </tbody>
                 </table>
             </div>

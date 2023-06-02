@@ -57,6 +57,15 @@
     height: 30px;
     padding-left: 5px;
 }
+.editInput:focus{
+    border: 0;
+    width: 100%;
+    border-radius: 2px;
+    height: 30px;
+    padding-left: 5px;
+    background-color: white;
+    color: black;
+}
 .custom-file-upload {
     background-color: transparent;
     color: white;
@@ -74,6 +83,7 @@
   input[type="file"] {
     display: none;
   }
+
 td img{
     height: 100px;
 }

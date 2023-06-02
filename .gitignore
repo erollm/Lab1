@@ -24,3 +24,7 @@ yarn-error.log*
 /.vs/Lab001
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+/.vs/Lab01
+/src/assets/css/admin.css
+/.gitignore
+/.gitignore
