@@ -24,7 +24,7 @@ export default function Banner() {
     }
     fetchData();
   }, []);
-  console.log(`${movie} banner`);
+  console.log(movie.id);
 
   //   KTHIMI I JSX
   return (
@@ -40,7 +40,7 @@ export default function Banner() {
           <a href="/">
             <button className="banner_button play_button">Play</button>
           </a>
-          <a href="/MoviePage">
+          <a href={`/MoviePage?movie_id=${movie.id}`}>
             <button className="banner_button info_button">More Info</button>
           </a>
         </div>
