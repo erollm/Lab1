@@ -12,24 +12,22 @@ export default function Banner() {
   useEffect(() => {
     // DUKE BERE FETCH DATA
     async function fetchData() {
-      const request = await axios.get(requests.fetchTrending);
-      // NDRYSHIMI I STATE TE HOME PAGE
-      // ME FILM RANDOM TE MARRUR NGA API CALL
+      const request = await axios.get(requests.fetchComedyMovies);
       setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
+        request.data[Math.floor(Math.random() * request.data.length - 1)]
       );
       return request;
     }
     fetchData();
   }, []);
+  console.log(`${movie} banner`);
+
   //   KTHIMI I JSX
   return (
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
       }}
     >
       <div className="banner_contents">
