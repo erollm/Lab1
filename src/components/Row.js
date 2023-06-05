@@ -18,21 +18,23 @@ function Row({ title, fetchUrl, large = false }) {
   return (
     <div className="row">
       <div className="tittle_row">
-        <a href={`/search?genre=${title}`}>
+        <a href={`/Categories?genre=${title}`}>
           <h2>{title}</h2>
           <img src={`${vector}`} alt="Vector" />
         </a>
       </div>
       <div className="row_posters">
         {movie.map((movie) => (
-          <img
-            className={`row_poster ${large && "row_poster_large"}`}
-            key={movie.id}
-            src={`${base_url}${
-              large ? movie.poster_path : movie.backdrop_path
-            }`}
-            alt={movie.name}
-          />
+          <a href={`/MoviePage?movie_id=${movie.id}`}>
+            <img
+              className={`row_poster ${large && "row_poster_large"}`}
+              key={movie.id}
+              src={`${base_url}${
+                large ? movie.poster_path : movie.backdrop_path
+              }`}
+              alt={movie.name}
+            />
+          </a>
         ))}
       </div>
     </div>
