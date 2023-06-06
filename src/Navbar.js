@@ -1,8 +1,10 @@
+import React from "react";
 import Logo from "./assets/images/cvlogo.png";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
 import { ReactComponent as BookmarkIcon } from "./assets/icons/bookmark.svg";
 import { ReactComponent as WatchLaterIcon } from "./assets/icons/clock.svg";
 import { ReactComponent as UserIcon } from "./assets/icons/user.svg";
+import useAuthContext from "./context/AuthContext";
 
 const Navbar = () => {
   function submitSearch(event) {
@@ -11,7 +13,8 @@ const Navbar = () => {
       window.location.href = `/SearchPage?query=${event.target.value}`;
     }
   }
-
+  const {user, logout, getUser} = useAuthContext()
+  getUser()
   return (
     <nav className="navbar navbar-expand-lg position-absolute top-0 left-0">
       <div className="container-fluid">
@@ -81,6 +84,9 @@ const Navbar = () => {
                 <UserIcon />
               </a>
             </li>
+                      {user && <li className="nav-item">
+                          <button onClick={logout}>Logout</button>
+                      </li>}
           </ul>
         </div>
       </div>
