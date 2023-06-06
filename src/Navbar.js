@@ -45,13 +45,7 @@ const Navbar = () => {
           <ul className="navbar-nav mb-2 mb-lg-0" id="navbarListIcon">
             <li className="nav-item">
               <div className="navbarSearchInput">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/SearchPage"
-                >
-                  <SearchIcon />
-                </a>
+                <SearchIcon />
                 <input
                   type="text"
                   placeholder="Search"
