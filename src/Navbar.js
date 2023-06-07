@@ -13,9 +13,8 @@ const Navbar = () => {
       window.location.href = `/SearchPage?query=${event.target.value}`;
     }
   }
-  const {user, logout, getUser} = useAuthContext()
-  getUser()
-  return (
+  const {user, logout} = useAuthContext()
+ return (
     <nav className="navbar navbar-expand-lg position-absolute top-0 left-0">
       <div className="container-fluid">
         <a className="navbar-brand" href="/HomeScreen">
