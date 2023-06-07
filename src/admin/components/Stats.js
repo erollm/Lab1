@@ -1,10 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import axios from "../../axios.js";
 
-export default function Stats(){
-    return(
-   <div className="main-container">
-    <div class="main-title">
+export default function Stats() {
+  const [stats, setStats] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("/api/AdminStats");
+        setStats(response.data);
+      } catch (error) {
+        alert(error.response.data);
+      }
+    }
+    fetchData();
+  }, []);
+
+  console.log(stats);
+  return (
+    <div className="main-container">
+      <div class="main-title">
         <h2>Admin Dashboard</h2>
       </div>
       <div class="main-cards">
@@ -12,27 +28,27 @@ export default function Stats(){
           <div class="card-inner">
             <h3>Movies</h3>
           </div>
-          <h1>249</h1>
+          <h1>1</h1>
         </div>
 
         <div class="card">
           <div class="card-inner">
             <h3>Users</h3>
           </div>
-          <h1>25</h1>
+          <h1>1</h1>
         </div>
 
         <div class="card">
           <div class="card-inner">
             <h3>Movies Watched</h3>
           </div>
-          <h1>1500</h1>
+          <h1>1</h1>
         </div>
       </div>
 
       <div class="charts">
         <div class="charts-card">
-          <h2 class="chart-title">Top 5 Movies</h2>
+          <h2 class="chart-title">Top 5 Genres</h2>
           <div id="bar-chart"></div>
           <Chart
             type="bar"
@@ -53,13 +69,7 @@ export default function Stats(){
                 stacked: true,
               },
               xaxis: {
-                categories: [
-                  "Action",
-                  "Comedy",
-                  "Horror",
-                  "Fantasy",
-                  "Drama",
-                ],
+                categories: ["Action", "Comedy", "Horror", "Fantasy", "Drama"],
                 labels: {
                   style: {
                     colors: [
@@ -113,6 +123,6 @@ export default function Stats(){
           />
         </div>
       </div>
-      </div>
-    )
+    </div>
+  );
 }
