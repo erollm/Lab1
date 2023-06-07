@@ -1,5 +1,5 @@
 import axios from "../api/axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({})
@@ -47,11 +47,27 @@ export const AuthProvider = ({children}) => {
           }
     }   
 
-    const logout = () =>{
-         axios.post('/logout').then(()=>{
-            setUser(null)
-         })
-    }
+    const logout = async () => {
+        await csrf();
+        try {
+          await axios.post("/logout");
+          setUser(null);
+          localStorage.removeItem("user");
+        } catch (error) {
+          console.error(error.response);
+          setErrors(error.response.data.errors);
+        }
+      };
+     useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (!user && !storedUser) {
+          getUser();
+        } else if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
+        } else {
+          setUser(JSON.parse(storedUser));
+        }
+      }, [user]);
 
     return <AuthContext.Provider value={{user, errors, getUser, login, register, logout}}>
         {children}
