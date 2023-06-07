@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 import axios from "../../axios.js";
 
 export default function Stats() {
-  const [stats, setStats] = useState([]);
+  const [stats, setStats] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +17,24 @@ export default function Stats() {
     fetchData();
   }, []);
 
-  console.log(stats);
+  if (stats == null) {
+    return <div> loading </div>;
+  }
+  /*
+  {
+    1: [Action, 1],
+    2: [Comedy, 2]
+  }
+
+  */
+  const genres = [];
+  const genreValues = [];
+
+  for (const key in stats.data.genres) {
+    genres.push(stats.data.genres[key][0]);
+    genreValues.push(stats.data.genres[key][1]);
+  }
+
   return (
     <div className="main-container">
       <div class="main-title">
@@ -28,21 +45,21 @@ export default function Stats() {
           <div class="card-inner">
             <h3>Movies</h3>
           </div>
-          <h1>1</h1>
+          <h1>{stats.data.movieCount}</h1>
         </div>
 
         <div class="card">
           <div class="card-inner">
             <h3>Users</h3>
           </div>
-          <h1>1</h1>
+          <h1>{stats.data.userCount}</h1>
         </div>
 
         <div class="card">
           <div class="card-inner">
             <h3>Movies Watched</h3>
           </div>
-          <h1>1</h1>
+          <h1>{stats.data.moviesWatched}</h1>
         </div>
       </div>
 
@@ -55,7 +72,7 @@ export default function Stats() {
             height={350}
             series={[
               {
-                data: [200, 78, 38, 87, 76],
+                data: genreValues,
               },
             ]}
             options={{
@@ -69,7 +86,7 @@ export default function Stats() {
                 stacked: true,
               },
               xaxis: {
-                categories: ["Action", "Comedy", "Horror", "Fantasy", "Drama"],
+                categories: genres,
                 labels: {
                   style: {
                     colors: [
