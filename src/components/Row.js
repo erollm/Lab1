@@ -15,6 +15,11 @@ function Row({ title, fetchUrl, large = false }) {
     }
     fetchData();
   }, [title, fetchUrl]);
+  if (!Array.isArray(movie)) {
+    // Handle non-array response (error or unexpected data)
+    return <div>Error: Failed to fetch movies.</div>;
+  }
+
   return (
     <div className="row">
       <div className="tittle_row">

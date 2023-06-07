@@ -6,7 +6,7 @@ import requests from "../request.js";
 import "../assets/css/Banner.css";
 
 export default function Banner() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   // PERDORIMI I EFFECT PER TE BERE API CALL ME LIBRARIN AXIOS
   useEffect(() => {
@@ -24,7 +24,10 @@ export default function Banner() {
     }
     fetchData();
   }, []);
-  console.log(movie.id);
+
+  if (movie === null) {
+    return;
+  }
 
   //   KTHIMI I JSX
   return (

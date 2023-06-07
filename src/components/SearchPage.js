@@ -6,7 +6,7 @@ function SearchPage() {
   const query = queryParams.get("query");
   const base_url = "https://image.tmdb.org/t/p/original";
 
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,7 +18,10 @@ function SearchPage() {
     fetchData();
   }, []);
 
-  console.log(movie.data);
+  if (movie === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="searchPage container">
       <div className="searchPageContainer">
