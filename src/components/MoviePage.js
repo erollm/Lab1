@@ -11,7 +11,7 @@ function MoviePage() {
   const movie_id = queryParams.get("movie_id");
   const base_url = "https://image.tmdb.org/t/p/original";
 
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +23,10 @@ function MoviePage() {
   }, []);
   console.log(movie ? movie : "no");
 
+  if (movie === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="MoviePageBg">
       <div className="MoviePageBgShadow">
@@ -30,8 +34,8 @@ function MoviePage() {
           <div className="MoviePageContainer">
             <img src={onepeiecename} alt="" />
             <ul className="MoviePageContainerInfo">
-              <li>120m</li>
-              <li>2022</li>
+              <li>{movie.data.length}</li>
+              <li>{movie.data.date}</li>
               <li>
                 <Imdb className="MoviePageImdbSvg" /> 9.9
               </li>
@@ -43,12 +47,7 @@ function MoviePage() {
               <li className="MoviePageContainerCategoriesDivider">|</li>
               <li>Action</li>
             </ul>
-            <p className="MoviePageDescription">
-              For the first time ever, Uta - the most beloved singer in the
-              world - will reveal herself to the world at a live concert. The
-              voice that the whole world has been waiting for is about to
-              resound.
-            </p>
+            <p className="MoviePageDescription">{movie.data.description}.</p>
             <div className="MoviePageButtons">
               <button>
                 <PlayButton className="MoviePagePlayButton" />
