@@ -1,16 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../axios.js";
 
-import demonSlayer from "../assets/images/covers/demonslayer.webp";
-import dragonBall from "../assets/images/covers/dragonballbroly.jpg";
-import naruto from "../assets/images/covers/naruto.webp";
-import onePiece from "../assets/images/covers/onepiecefilmred.webp";
-import silentVoice from "../assets/images/covers/silentvoice.jpg";
-import spiritedAway from "../assets/images/covers/spiritedaway.jpg";
-import totoro from "../assets/images/covers/totoro.jpg";
-import weatheringWithYou from "../assets/images/covers/weatheringwithyou.jpg";
-import yourName from "../assets/images/covers/yourname.jpg";
-
 function SearchPage() {
   const queryParams = new URLSearchParams(window.location.search);
   const query = queryParams.get("query");
@@ -21,14 +11,14 @@ function SearchPage() {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(`api/search/${query}`);
+
       setMovie(request.data);
       return;
     }
     fetchData();
-  });
+  }, []);
 
-  console.log(movie);
-
+  console.log(movie.data);
   return (
     <div className="searchPage container">
       <div className="searchPageContainer">
