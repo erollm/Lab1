@@ -15,17 +15,18 @@ function MoviePage() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(`api/v1/movies/1`);
+      const request = await axios.get(`api/v1/movies/${movie_id}}`);
       setMovie(request.data);
       return;
     }
     fetchData();
   }, []);
-  console.log(movie ? movie : "no");
 
   if (movie === null) {
     return <div>Loading...</div>;
   }
+
+  console.log(move.data);
 
   return (
     <div className="MoviePageBg">
