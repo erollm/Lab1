@@ -9,12 +9,17 @@ import EditMovie from "./components/EditMovie";
 import "./css/style.css";
 import "./css/admin.css";
 import Movie from "../assets/icons/movie.png";
+import { Routes,Route } from 'react-router-dom';
 
 function index() {
   return (
     <div className="admin--panel">
       <Navbar />
-      <Stats />
+      <Routes>
+          <Route path="/admin" element={<Stats/>}/>
+          <Route path="/admin/users" element={<Users/>}/>
+          <Route path="/admin/movies" element={<Movies/>}/>
+      </Routes>
     </div>
   );
 }
