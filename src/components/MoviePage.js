@@ -5,6 +5,7 @@ import { ReactComponent as Add } from "../assets/icons/add.svg";
 import { ReactComponent as Imdb } from "../assets/icons/imdb_logo.svg";
 import React, { useEffect, useState } from "react";
 import axios from "../axios.js";
+import useAuthContext from "../context/AuthContext.js";
 
 function MoviePage() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -12,6 +13,7 @@ function MoviePage() {
   const base_url = "https://image.tmdb.org/t/p/original";
 
   const [movie, setMovie] = useState(null);
+  const { user, logout } = useAuthContext();
 
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +28,17 @@ function MoviePage() {
     return <div>Loading...</div>;
   }
 
-  console.log(move.data);
+  const videoEnd = () => {
+    useEffect(() => {
+      async function postData() {
+        const request = await axios.post(
+          `api/watchlist/${user.id}/movie/${movie_id}`
+        );
+        return;
+      }
+      postData();
+    }, []);
+  };
 
   return (
     <div className="MoviePageBg">

@@ -9,12 +9,12 @@ import useAuthContext from "./context/AuthContext";
 const Navbar = () => {
   function submitSearch(event) {
     if (event.keyCode === 13) {
-      event.preventDefault(); // Prevents the form submission (if any)
+      event.preventDefault();
       window.location.href = `/SearchPage?query=${event.target.value}`;
     }
   }
-  const {user, logout} = useAuthContext()
- return (
+  const { user, logout } = useAuthContext();
+  return (
     <nav className="navbar navbar-expand-lg position-absolute top-0 left-0">
       <div className="container-fluid">
         <a className="navbar-brand" href="/HomeScreen">
@@ -83,9 +83,11 @@ const Navbar = () => {
                 <UserIcon />
               </a>
             </li>
-                      {user && <li className="nav-item">
-                          <button onClick={logout}>Logout</button>
-                      </li>}
+            {user && (
+              <li className="nav-item">
+                <button onClick={logout}>Logout</button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
