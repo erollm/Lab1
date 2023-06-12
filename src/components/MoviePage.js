@@ -26,8 +26,6 @@ function MoviePage() {
     return <div>Loading...</div>;
   }
 
-  console.log(move.data);
-
   return (
     <div className="MoviePageBg">
       <div className="MoviePageBgShadow">
