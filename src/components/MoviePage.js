@@ -30,12 +30,40 @@ function MoviePage() {
         user_id: user.id,
         movie_id: movieId,
         watched_status: true,
-        watch_later: false,
-        bookmarked: false,
       };
       async function postData() {
         const request = await axios.post(`/api/watchlist`, userData);
-        console.log("exec");
+        console.log("exec watched");
+      }
+      postData();
+    }
+  };
+
+  const addWatchlist = () => {
+    if (movie !== null) {
+      const userData = {
+        user_id: user.id,
+        movie_id: movieId,
+        watch_later: true,
+      };
+      async function postData() {
+        const request = await axios.post(`/api/watchlist`, userData);
+        console.log("exec watch");
+      }
+      postData();
+    }
+  };
+
+  const addBookmark = () => {
+    if (movie !== null) {
+      const userData = {
+        user_id: user.id,
+        movie_id: movieId,
+        bookmarked: true,
+      };
+      async function postData() {
+        const request = await axios.post(`/api/watchlist`, userData);
+        console.log("exec book");
       }
       postData();
     }
