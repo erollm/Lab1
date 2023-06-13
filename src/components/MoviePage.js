@@ -73,6 +73,7 @@ function MoviePage() {
       };
 
       apiCall(userData);
+      console.log("watchlate called");
     }
   };
 
@@ -86,6 +87,7 @@ function MoviePage() {
       };
 
       apiCall(userData);
+      console.log("bookmark called");
     }
   };
 
@@ -115,19 +117,11 @@ function MoviePage() {
             </ul>
             <p className="MoviePageDescription">{movie.data.description}.</p>
             <div className="MoviePageButtons">
-              <button>
-                <PlayButton className="MoviePagePlayButton" />
-                Play
-              </button>
-              <button>
-                <PlayButton className="MoviePagePlayButton" />
-                Watch Trailer
-              </button>
-              <button>
+              <button onClick={addBookmark}>
                 <Add className="MoviePagePlayButton" />
                 Add to Library
               </button>
-              <button>
+              <button onClick={addWatchlist}>
                 <AddLibrary className="MoviePagePlayButton" />
                 Add to Watch Later
               </button>
