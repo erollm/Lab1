@@ -14,6 +14,7 @@ function MoviePage() {
   const base_url = "https://image.tmdb.org/t/p/original";
 
   const [movie, setMovie] = useState(null);
+  const [watchlistRow, setWatchlistRow] = useState(null);
   const { user, logout } = useAuthContext();
 
   useEffect(() => {
@@ -24,6 +25,32 @@ function MoviePage() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    async function fetchWatchlistRow() {
+      //                       watchlist/movie_id/User_id
+      const request = await axios.get(`api/watchlist/2/1`);
+      setWatchlistRow(request.data);
+      return;
+    }
+    fetchWatchlistRow();
+  }, []);
+
+  function apiCall(userData) {
+    if (watchlistRow) {
+      async function putData() {
+        const request = await axios.put(`/api/watchlist/put`, userData);
+        console.log("exec watched put");
+      }
+      putData();
+    } else {
+      async function postData() {
+        const request = await axios.post(`/api/watchlist`, userData);
+        console.log("exec watched");
+      }
+      postData();
+    }
+  }
+  // === VIDEO ===
   const endVideo = () => {
     if (movie !== null) {
       const userData = {
@@ -31,14 +58,12 @@ function MoviePage() {
         movie_id: movieId,
         watched_status: true,
       };
-      async function postData() {
-        const request = await axios.post(`/api/watchlist`, userData);
-        console.log("exec watched");
-      }
-      postData();
+      console.log(userData);
+      apiCall(userData);
     }
   };
 
+  //  ==== WATCHLIST ====
   const addWatchlist = () => {
     if (movie !== null) {
       const userData = {
@@ -46,14 +71,12 @@ function MoviePage() {
         movie_id: movieId,
         watch_later: true,
       };
-      async function postData() {
-        const request = await axios.post(`/api/watchlist`, userData);
-        console.log("exec watch");
-      }
-      postData();
+
+      apiCall(userData);
     }
   };
 
+  // === BOOKMARK ===
   const addBookmark = () => {
     if (movie !== null) {
       const userData = {
@@ -61,11 +84,8 @@ function MoviePage() {
         movie_id: movieId,
         bookmarked: true,
       };
-      async function postData() {
-        const request = await axios.post(`/api/watchlist`, userData);
-        console.log("exec book");
-      }
-      postData();
+
+      apiCall(userData);
     }
   };
 
