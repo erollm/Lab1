@@ -1,10 +1,19 @@
+import React from "react";
 import Logo from "./assets/images/cvlogo.png";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
 import { ReactComponent as BookmarkIcon } from "./assets/icons/bookmark.svg";
 import { ReactComponent as WatchLaterIcon } from "./assets/icons/clock.svg";
 import { ReactComponent as UserIcon } from "./assets/icons/user.svg";
+import useAuthContext from "./context/AuthContext";
 
 const Navbar = () => {
+  function submitSearch(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      window.location.href = `/SearchPage?query=${event.target.value}`;
+    }
+  }
+  const { user, logout } = useAuthContext();
   return (
     <nav className="navbar navbar-expand-lg position-absolute top-0 left-0">
       <div className="container-fluid">
@@ -23,7 +32,6 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -38,13 +46,15 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0" id="navbarListIcon">
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href="/SearchPage"
-              >
+              <div className="navbarSearchInput">
                 <SearchIcon />
-              </a>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  autoFocus
+                  onKeyDown={submitSearch}
+                />
+              </div>
             </li>
             <li className="nav-item">
               <a
@@ -73,6 +83,11 @@ const Navbar = () => {
                 <UserIcon />
               </a>
             </li>
+            {user && (
+              <li className="nav-item">
+                <button onClick={logout}>Logout</button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Popup from 'reactjs-popup';
 import demonSlayer from "../assets/images/covers/demonslayer.webp";
 import dragonBall from "../assets/images/covers/dragonballbroly.jpg";
 import naruto from "../assets/images/covers/naruto.webp";
@@ -9,6 +10,7 @@ import weatheringWithYou from "../assets/images/covers/weatheringwithyou.jpg";
 import yourName from "../assets/images/covers/yourname.jpg";
 // import {useState} from "@types/react";
 import { useState } from "react";
+import {ReactComponent as BookmarkIcon} from "../assets/icons/bookmark.svg";
 
 const Profile = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -27,7 +29,45 @@ const Profile = () => {
           <div className="profilePersonalInfoName">
             <h2>Tanjiro Kamado</h2>
             <h3>@tanjirokamado</h3>
-            <a href="#">Edit</a>
+            <Popup trigger={<button> Edit</button>} position="right center">
+                <div className="profileEditPopup">
+                    <div className="profileEditPopupContainer">
+                        <div className="prilfeEditPopupTitle">
+                            <h2>Edit personal info</h2>
+                        </div>
+                        <form action="">
+                            <div className="profileEditForm row">
+                                <div className="profileEditPrsInfo col-lg-6">
+                                    <div className="d-flex">
+                                        <div>
+                                            <label htmlFor="first_name">Your first name:</label>
+                                            <input type="text" id="first_name" placeholder="Tanjiro"/>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="last_name">Your last name:</label>
+                                            <input type="text" id="last_name" placeholder="Kamado"/>
+                                        </div>
+                                    </div>
+                                    <label htmlFor="username">Your username:</label>
+                                    <input type="text" id="username" placeholder="tanjirokamado_"/>
+                                    <label htmlFor="email">Your email:</label>
+                                    <input type="text" id="email" placeholder="tanjiro@gmail.com"/>
+                                </div>
+                                <div className="profileEditPwd col-lg-6">
+                                    <label htmlFor="old_pwd">Your old password:</label>
+                                    <input type="text" id="old_pwd" placeholder="Old password"/>
+                                    <label htmlFor="new_pwd">Your new password:</label>
+                                    <input type="text" id="new_pwd" placeholder="New password"/>
+                                    <label htmlFor="confirm_new_pwd">Confirm your new password:</label>
+                                    <input type="text" id="confirm_new_pwd" placeholder="Confirm new password"/>
+                                </div>
+                            </div>
+                        </form>
+                        <button>Edit</button>
+
+                    </div>
+                </div>
+            </Popup>
           </div>
         </div>
         <div className="profileActivities col-lg-8">

@@ -6,30 +6,35 @@ import requests from "../request.js";
 import "../assets/css/Banner.css";
 
 export default function Banner() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   // PERDORIMI I EFFECT PER TE BERE API CALL ME LIBRARIN AXIOS
   useEffect(() => {
     // DUKE BERE FETCH DATA
     async function fetchData() {
-      const request = await axios.get(requests.fetchTrending);
+      const request = await axios.get(requests.fetchComedyMovies);
+      console.log(request);
       // NDRYSHIMI I STATE TE HOME PAGE
       // ME FILM RANDOM TE MARRUR NGA API CALL
+
       setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
+        request.data[Math.floor(Math.random() * request.data.length - 1)]
       );
       return request;
     }
     fetchData();
   }, []);
+
+  if (movie === null) {
+    return;
+  }
+
   //   KTHIMI I JSX
   return (
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
       }}
     >
       <div className="banner_contents">
@@ -38,7 +43,7 @@ export default function Banner() {
           <a href="/">
             <button className="banner_button play_button">Play</button>
           </a>
-          <a href="/MoviePage">
+          <a href={`/MoviePage?movie_id=${movie.id}`}>
             <button className="banner_button info_button">More Info</button>
           </a>
         </div>

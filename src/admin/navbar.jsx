@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../assets/css/navbar.css";
 import Logo from "../assets/images/cvlogo.png";
-
 import Stats from "../assets/icons/stats.png";
 import Movie from "../assets/icons/movie.png";
 import Users from "../assets/icons/users.png";
+
 function navbar() {
   return (
     <>
@@ -16,32 +17,31 @@ function navbar() {
           <ul>
             <li>
               <span>
-                <a href="/admin">
-                  {" "}
+                <Link to="/admin">
                   <img src={Stats} class="admin--stats--icon"></img>
                   Stats
-                </a>
+                </Link>
               </span>
               <hr></hr>
             </li>
             <li>
               <span>
-                <a href="/admin/users">
+                <Link to="/admin/users">
                   <img src={Users} class="admin--users--icon"></img>Users
-                </a>
+                </Link>
               </span>
               <hr></hr>
             </li>
             <li>
               <span>
-                <a href="/admin/movies">
+                <Link to="/admin/movies">
                   <img src={Movie} class="admin--movie--icon"></img>Movies
-                </a>
+                </Link>
               </span>
               <hr></hr>
             </li>
             <li>
-              <a href="/">Log out</a>
+              <Link to="/">Log out</Link>
             </li>
           </ul>
         </div>

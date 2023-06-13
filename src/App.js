@@ -12,6 +12,7 @@ import Signup from "./components/Signup";
 import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
 
+
 function App() {
   // return (
   //   <>
@@ -24,7 +25,7 @@ function App() {
   //   </>
   // );
   let Component;
-
+  
   switch (window.location.pathname) {
     case "/":
       Component = <HomeScreen />;
@@ -67,5 +68,7 @@ function App() {
       {Component}
     </>
   );
+
+
 }
 export default App;
