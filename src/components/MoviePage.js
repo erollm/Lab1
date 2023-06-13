@@ -105,15 +105,17 @@ function MoviePage() {
               <li>{movie.data.length}</li>
               <li>{movie.data.date}</li>
               <li>
-                <Imdb className="MoviePageImdbSvg" /> 9.9
+                <Imdb className="MoviePageImdbSvg" />{" "}
+                {Math.ceil(movie.rating?.average_rating)}
               </li>
             </ul>
             <ul className="MoviePageContainerCategories">
-              <li>Anime</li>
-              <li className="MoviePageContainerCategoriesDivider">|</li>
-              <li>Adventure</li>
-              <li className="MoviePageContainerCategoriesDivider">|</li>
-              <li>Action</li>
+              {movie.genres.map((genre) => (
+                <>
+                  <li>{genre.genre}</li>
+                  <li className="MoviePageContainerCategoriesDivider">|</li>
+                </>
+              ))}
             </ul>
             <p className="MoviePageDescription">{movie.data.description}.</p>
             <div className="MoviePageButtons">
