@@ -6,10 +6,11 @@ import { ReactComponent as Imdb } from "../assets/icons/imdb_logo.svg";
 import React, { useEffect, useState } from "react";
 import axios from "../axios.js";
 import useAuthContext from "../context/AuthContext.js";
+import video from "../assets/videos/video.mp4";
 
 function MoviePage() {
   const queryParams = new URLSearchParams(window.location.search);
-  const movie_id = queryParams.get("movie_id");
+  const movieId = queryParams.get("movie_id");
   const base_url = "https://image.tmdb.org/t/p/original";
 
   const [movie, setMovie] = useState(null);
@@ -17,28 +18,32 @@ function MoviePage() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(`api/v1/movies/${movie_id}}`);
+      const request = await axios.get(`api/v1/movies/${movieId}`);
       setMovie(request.data);
-      return;
     }
     fetchData();
   }, []);
 
+  const endVideo = () => {
+    if (movie !== null) {
+      const userData = {
+        user_id: user.id,
+        movie_id: movieId,
+        watched_status: true,
+        watch_later: false,
+        bookmarked: false,
+      };
+      async function postData() {
+        const request = await axios.post(`/api/watchlist`, userData);
+        console.log("exec");
+      }
+      postData();
+    }
+  };
+
   if (movie === null) {
     return <div>Loading...</div>;
   }
-
-  const videoEnd = () => {
-    useEffect(() => {
-      async function postData() {
-        const request = await axios.post(
-          `api/watchlist/${user.id}/movie/${movie_id}`
-        );
-        return;
-      }
-      postData();
-    }, []);
-  };
 
   return (
     <div className="MoviePageBg">
@@ -81,6 +86,11 @@ function MoviePage() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <video width="100%" height="100%" controls onEnded={endVideo}>
+          <source src={video} />
+        </video>
       </div>
     </div>
   );
