@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from 'react';
 import TableRow from "./TableRow";
-import tempUsers from "../tempUsers";
-export default function Users() {
-   
-    const [users, setUsers] = React.useState(tempUsers.map((user)=> ({...user, editing: false})))
+import UserContext from '../../context/UserContext';
 
+export default function Users() {
+    const {users, getUsers} = useContext(UserContext);
+    const [tempUsers, setTempUsers] = React.useState([]);
+    useEffect(() => {
+        const fetchUsers = async () => {
+          await getUsers();
+          setTempUsers(users.map(user => ({ ...user, editing: false })));
+        };
+      
+        fetchUsers();
+      }, []);
     function editUser(id){
-        setUsers((prevUser) => prevUser.map((user) => user.id === id ? ({...user, editing: true}) : ({...user})))       
+        setTempUsers((prevUser) => prevUser.map((user) => user.id === id ? ({...user, editing: true}) : ({...user})))       
     }
 
+    //{users.map(user=> <TableRow key={user.id} username={user.username} firstname={user.firstname} lastname={user.lastname} email={user.email} handleClick={()=> editUser(user.id)} editing={user.editing}/>)}
     return (
         <div className="adminContainer">
             <div className="SContainer">
@@ -25,7 +34,7 @@ export default function Users() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user=> <TableRow key={user.id} username={user.username} firstname={user.firstname} lastname={user.lastname} email={user.email} handleClick={()=> editUser(user.id)} editing={user.editing}/>)}
+                    {tempUsers.map(user=> <TableRow key={user.id} username={user.username} firstname={user.firstname} lastname={user.lastname} email={user.email} handleClick={()=> editUser(user.id)} editing={user.editing} />)}
                     </tbody>
                 </table>
             </div>

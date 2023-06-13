@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Navbar from "./navbar";
 import Stats from "./components/Stats";
 import Users from "./components/Users";
@@ -10,18 +10,21 @@ import "./css/style.css";
 import "./css/admin.css";
 import Movie from "../assets/icons/movie.png";
 import { Routes,Route } from 'react-router-dom';
+import {UserProvider} from '../context/UserContext';
 
-function index() {
+
+export default function index(){
   return (
     <div className="admin--panel">
       <Navbar />
+      <UserProvider>
       <Routes>
           <Route path="/admin" element={<Stats/>}/>
           <Route path="/admin/users" element={<Users/>}/>
           <Route path="/admin/movies" element={<Movies/>}/>
       </Routes>
+      </UserProvider>
     </div>
   );
 }
 
-export default index;
