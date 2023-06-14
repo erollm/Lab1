@@ -13,10 +13,9 @@ export const UserProvider = ({children}) => {
         email: "",
         password: "",
         password_confirmation: ""
-      } 
+      };
 
       const [createValues, setCreateValues] = useState(initialValues);
-      const [user, setUser] = useState([]);
       const [users, setUsers] = useState([]);
       const [errors, setErrors] = useState({});
       const navigate = useNavigate();
@@ -51,32 +50,19 @@ export const UserProvider = ({children}) => {
       }
   }
 
-  /*const getUser = async (id) => {
-    const response = await axios.get("skills/"+id);
-    const apiSkill = response.data.data;
-    setUser(apiSkill);
-    setFormValues({
-        name: apiSkill.name,
-        slug: apiSkill.slug
-    })
-};
-
-  const updateUser = async (event) =>{
-    event.preventDefault();
-    let id = skill.id;
-    try{ 
-        await axios.put("skills/"+id, formValues);
-        getSkills();
-        navigate("/skills");
+   const updateUser = async (id, data) =>{
+            try{ 
+                await axios.put("/api/v1/users/"+id, data);
+                getUsers();
     }
-    catch(e){
-        if(e.response.status === 422){
-            setErrors(e.response.data.errors);
-        }
+            catch(e){
+                if(e.response.status === 422){
+                setErrors(e.response.data.errors);
+            }
     }
-}*/
+  }
      
-    return <UserContext.Provider value={{users, getUsers, errors, createValues, handleInputChange, storeUser, deleteUser}}>{children}</UserContext.Provider>
+    return <UserContext.Provider value={{users, getUsers, errors, createValues, handleInputChange, storeUser, deleteUser, updateUser}}>{children}</UserContext.Provider>
 };
 
 export default UserContext;
