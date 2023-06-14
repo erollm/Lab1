@@ -23,6 +23,7 @@ function SearchPage() {
   }
 
   return (
+
     <div className="searchPage container">
       <div className="searchPageContainer">
         <div className="searchPageTitle">
