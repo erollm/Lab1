@@ -13,7 +13,6 @@ export default function Banner() {
     // DUKE BERE FETCH DATA
     async function fetchData() {
       const request = await axios.get(requests.fetchComedyMovies);
-      console.log(request);
       // NDRYSHIMI I STATE TE HOME PAGE
       // ME FILM RANDOM TE MARRUR NGA API CALL
 

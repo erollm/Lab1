@@ -6,9 +6,11 @@ import vector from "../assets/images/Vector.png";
 function Row({ title, fetchUrl, large = false }) {
   const [movie, setMovie] = useState([]);
   const base_url = "https://image.tmdb.org/t/p/original";
+  const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   useEffect(() => {
     async function fetchData() {
+      console.log(await csrf());
       const request = await axios.get(fetchUrl);
       setMovie(request.data);
       return;

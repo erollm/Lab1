@@ -18,6 +18,16 @@ function MoviePage() {
   const { user, logout } = useAuthContext();
 
   useEffect(() => {
+    async function fetchWatchlistRow() {
+      //                       watchlist/movie_id/User_id
+      const request = await axios.get(`api/watchlist/${movieId}/2`);
+      setWatchlistRow(request.data);
+      return;
+    }
+    fetchWatchlistRow();
+  }, []);
+
+  useEffect(() => {
     async function fetchData() {
       const request = await axios.get(`api/v1/movies/${movieId}`);
       setMovie(request.data);
@@ -25,31 +35,6 @@ function MoviePage() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    async function fetchWatchlistRow() {
-      //                       watchlist/movie_id/User_id
-      const request = await axios.get(`api/watchlist/2/1`);
-      setWatchlistRow(request.data);
-      return;
-    }
-    fetchWatchlistRow();
-  }, []);
-
-  function apiCall(userData) {
-    if (watchlistRow) {
-      async function putData() {
-        const request = await axios.put(`/api/watchlist/put`, userData);
-        console.log("exec watched put");
-      }
-      putData();
-    } else {
-      async function postData() {
-        const request = await axios.post(`/api/watchlist`, userData);
-        console.log("exec watched");
-      }
-      postData();
-    }
-  }
   // === VIDEO ===
   const endVideo = () => {
     if (movie !== null) {
@@ -58,8 +43,20 @@ function MoviePage() {
         movie_id: movieId,
         watched_status: true,
       };
-      console.log(userData);
-      apiCall(userData);
+      if (Object.keys(watchlistRow).length > 0) {
+        async function putData() {
+          const request = await axios.put(`/api/watchlist/put`, userData);
+          console.log("exec watched put");
+        }
+        putData();
+      } else {
+        async function postData() {
+          const request = await axios.post(`/api/watchlist`, userData);
+          console.log("exec watched");
+        }
+
+        postData();
+      }
     }
   };
 
@@ -71,13 +68,22 @@ function MoviePage() {
         movie_id: movieId,
         watch_later: true,
       };
+      if (Object.keys(watchlistRow).length > 0) {
+        async function putData() {
+          const request = await axios.put(`/api/watchlist/put`, userData);
+          console.log("exec watched put");
+        }
+        putData();
+      } else {
+        async function postData() {
+          const request = await axios.post(`/api/watchlist`, userData);
 
-      apiCall(userData);
-      console.log("watchlate called");
+          console.log("exec watched");
+        }
+        postData();
+      }
     }
   };
-
-  // === BOOKMARK ===
   const addBookmark = () => {
     if (movie !== null) {
       const userData = {
@@ -86,8 +92,20 @@ function MoviePage() {
         bookmarked: true,
       };
 
-      apiCall(userData);
-      console.log("bookmark called");
+      if (Object.keys(watchlistRow).length > 0) {
+        async function putData() {
+          const request = await axios.put(`/api/watchlist/put`, userData);
+          console.log("exec watched put");
+        }
+        putData();
+      } else {
+        async function postData() {
+          const request = await axios.post(`/api/watchlist`, userData);
+
+          console.log("exec watched");
+        }
+        postData();
+      }
     }
   };
 
@@ -105,8 +123,7 @@ function MoviePage() {
               <li>{movie.data.length}</li>
               <li>{movie.data.date}</li>
               <li>
-                <Imdb className="MoviePageImdbSvg" />{" "}
-                {Math.ceil(movie.rating?.average_rating)}
+                <Imdb className="MoviePageImdbSvg" /> 9.9
               </li>
             </ul>
             <ul className="MoviePageContainerCategories">

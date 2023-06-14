@@ -7,18 +7,25 @@ export default function MyLibrary() {
   // state and effect declaration
 
   const [movie, setMovie] = useState(null);
+  const { user, logout } = useAuthContext();
 
   // url of photos in API
   const base_url = "https://image.tmdb.org/t/p/original";
-  const fetchUrl = request.fetchTrending;
+
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovie(request.data.results);
-      return;
-    }
-    fetchData();
-  }, []);
+    // using timeout to make sure api call doesnt get called before useauthcontext
+    const timer = setTimeout(() => {
+      async function fetchData() {
+        const request = await axios.get(`api/bookmarked/${user.id}`);
+        setMovie(request.data);
+        return;
+      }
+      fetchData();
+    }, 2000);
+    return () => clearTimeout(timer);
+
+    // passing user inside useEffect
+  }, [user]);
 
   if (movie === null) {
     return <div>Loading...</div>;

@@ -2,23 +2,29 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/SearchPage.css";
 import axios from "../axios.js";
 import request from "../request.js";
+import useAuthContext from "../context/AuthContext.js";
 
 function WatchLater() {
   // state and effect declaration
-
+  const { user, logout } = useAuthContext();
   const [movie, setMovie] = useState(null);
-
   // url of photos in API
   const base_url = "https://image.tmdb.org/t/p/original";
-  const fetchUrl = request.fetchTrending;
+
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovie(request.data.results);
-      return;
-    }
-    fetchData();
-  }, []);
+    // using timeout to make sure api call doesnt get called before useauthcontext
+    const timer = setTimeout(() => {
+      async function fetchData() {
+        const request = await axios.get(`api/watch_later/${user.id}`);
+        setMovie(request.data);
+        return;
+      }
+      fetchData();
+    }, 2000);
+    return () => clearTimeout(timer);
+
+    // passing user inside useEffect
+  }, [user]);
 
   if (movie === null) {
     return <div>Loading...</div>;
