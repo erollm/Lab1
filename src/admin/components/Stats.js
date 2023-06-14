@@ -109,36 +109,6 @@ export default function Stats() {
             }}
           />
         </div>
-
-        <div class="charts-card">
-          <h2 class="chart-title">Users logged in</h2>
-          <div id="area-chart"></div>
-          <Chart
-            type="donut"
-            height={350}
-            series={[45, 67, 89, 34, 43]}
-            options={{
-              labels: ["USA", "China", "Russia", "India", "UK"],
-              legend: {
-                labels: {
-                  colors: ["#FFFFFF"],
-                },
-              },
-              plotOptions: {
-                pie: {
-                  donut: {
-                    labels: { show: false, fontSize: 30, color: "#FFFFFF" },
-                  },
-                },
-              },
-
-              dataLabels: {
-                enabled: true,
-                colors: "#FFFFFF",
-              },
-            }}
-          />
-        </div>
       </div>
     </div>
   );
