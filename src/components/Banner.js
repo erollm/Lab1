@@ -30,7 +30,8 @@ export default function Banner() {
 
   //   KTHIMI I JSX
   return (
-    <header className="banner"
+    <header
+      className="banner"
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
       }}

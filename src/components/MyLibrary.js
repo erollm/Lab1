@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/SearchPage.css";
 import axios from "../axios.js";
 import request from "../request.js";
+import useAuthContext from "../context/AuthContext.js";
 
 export default function MyLibrary() {
   // state and effect declaration
@@ -16,7 +17,7 @@ export default function MyLibrary() {
     // using timeout to make sure api call doesnt get called before useauthcontext
     const timer = setTimeout(() => {
       async function fetchData() {
-        const request = await axios.get(`api/bookmarked/${user.id}`);
+        const request = await axios.get(`api/bookmark/${user.id}`);
         setMovie(request.data);
         return;
       }
