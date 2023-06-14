@@ -23,7 +23,7 @@ function Row({ title, fetchUrl, large = false }) {
   }
 
   return (
-    <div className="row">
+    <div className="rowPage">
       <div className="tittle_row">
         <a href={`/Categories?genre=${title}`}>
           <h2>{title}</h2>

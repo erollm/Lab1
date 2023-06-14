@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "../axios.js";
 import requests from "../request.js";
-import "../assets/css/Banner.css";
+import "../assets/css/style.css";
 
 export default function Banner() {
   const [movie, setMovie] = useState(null);
@@ -30,8 +30,7 @@ export default function Banner() {
 
   //   KTHIMI I JSX
   return (
-    <header
-      className="banner"
+    <header className="banner"
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
       }}

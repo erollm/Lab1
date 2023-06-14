@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+/*homeScreen */
+.homeScreen {
+    margin: 0;
+    background: #111;
+    overflow-x: hidden;
+}
+/* banner homeScreen */
+.banner {
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    object-fit: contain;
+    -webkit-box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 131px 84px -49px rgba(0, 0, 0, 0.75);
+}
+.banner_contents {
+    padding-top: 25vh;
+    margin-left: 5%;
+}
+.banner_contents > h1 {
+    text-shadow: 2px 1px 8px #000000;
+}
+.banner_buttons .banner_button {
+    cursor: pointer;
+    font-weight: 700;
+    margin-right: 1rem;
+    padding: 10px;
+    color: white;
+    outline: none;
+    transition: all 0.5s ease;
+    border: 2px solid white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+}
+
+.banner_buttons .play_button {
+    color: #000;
+    mix-blend-mode: screen;
+}
+
+.banner_buttons .info_button {
+    color: #fff;
+    background-color: transparent;
+}
+.banner_buttons .info_button:hover {
+    color: #000;
+    mix-blend-mode: screen;
+    background-color: #fff;
+    transform: scale(1.1);
+}
+.banner_buttons .play_button:hover {
+    background-color: transparent;
+    color: white;
+    transform: scale(1.1);
+}
+.banner_Fade {
+    height: 7.4rem;
+    background-image: linear-gradient(
+            180deg,
+            transparent,
+            rgba(37, 37, 37, 0.61),
+            #111
+    );
+}
+/*banner homeScreen*/
