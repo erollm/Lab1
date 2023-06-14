@@ -12,63 +12,23 @@ import Signup from "./components/Signup";
 import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
 
-
 function App() {
-  // return (
-  //   <>
-  //     <Routes>
-  //
-  //       <Route path="/" element={<HomeScreen />} />
-  //       <Route path="/search" element={<SearchPage />} />
-  //       <Route path="/watch-later" element={<WatchLater />} />
-  //     </Routes>
-  //   </>
-  // );
-  let Component;
-  
-  switch (window.location.pathname) {
-    case "/":
-      Component = <HomeScreen />;
-      break;
-    case "/HomeScreen":
-      Component = <HomeScreen />;
-      break;
-    case "/SearchPage":
-      Component = <SearchPage />;
-      break;
-    case "/WatchLater":
-      Component = <WatchLater />;
-      break;
-    case "/MoviePage":
-      Component = <MoviePage />;
-      break;
-    case "/Categories":
-      Component = <Categories />;
-      break;
-    case "/Profile":
-      Component = <Profile />;
-      break;
-    case "/Login":
-      Component = <Login />;
-      break;
-    case "/Signup":
-      Component = <Signup />;
-      break;
-    case "/MyLibrary":
-      Component = <MyLibrary />;
-      break;
-    case "/admin":
-      Component = <Admin />;
-      break;
-  }
   return (
     <>
-      {/* thirrja e navbar kur nuk eshte ne admin panel      */}
-      {window.location.pathname !== "/admin" && <Navbar />}
-      {Component}
+      <Routes>
+        <Route path="/" element={[<Navbar />, <HomeScreen />]} />
+        <Route path="/HomeScreen" element={[<Navbar />, <HomeScreen />]} />
+        <Route path="/SearchPage" element={[<Navbar />, <SearchPage />]} />
+        <Route path="/MyLibrary" element={[<Navbar />, <MyLibrary />]} />
+        <Route path="/WatchLater" element={[<Navbar />, <WatchLater />]} />
+        <Route path="/MoviePage" element={[<Navbar />, <MoviePage />]} />
+        <Route path="/Categories" element={[<Navbar />, <Categories />]} />
+        <Route path="/Profile" element={[<Navbar />, <Profile />]} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/admin/*" element={<Admin />} />
+      </Routes>
     </>
   );
-
-
 }
 export default App;

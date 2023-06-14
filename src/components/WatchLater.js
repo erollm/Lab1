@@ -7,6 +7,7 @@ import useAuthContext from "../context/AuthContext.js";
 function WatchLater() {
   // state and effect declaration
   const { user, logout } = useAuthContext();
+
   const [movie, setMovie] = useState(null);
   // url of photos in API
   const base_url = "https://image.tmdb.org/t/p/original";
@@ -30,6 +31,9 @@ function WatchLater() {
     return <div>Loading...</div>;
   }
 
+  if (!user === null) {
+    console.log(`null`);
+  }
   return (
     <>
       <div className="search_page">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Navbar from "./navbar";
 import Stats from "./components/Stats";
 import Users from "./components/Users";
@@ -9,26 +9,25 @@ import EditMovie from "./components/EditMovie";
 import "./css/style.css";
 import "./css/admin.css";
 import Movie from "../assets/icons/movie.png";
-import { Routes,Route } from 'react-router-dom';
-import {UserProvider} from '../context/UserContext';
-import { MovieProvider } from '../context/MovieContext';
+import { Routes, Route } from "react-router-dom";
+import { UserProvider } from "../context/UserContext";
+import { MovieProvider } from "../context/MovieContext";
 
-
-export default function index(){
+export default function index() {
   return (
     <div className="admin--panel">
       <Navbar />
       <MovieProvider>
-      <UserProvider>
-      <Routes>
-          <Route path="/admin" element={<Stats/>}/>
-          <Route path="/admin/users" element={<Users/>}/>
-          <Route path="/admin/users/add" element ={<AddUsers/>}/>
-          <Route path="/admin/movies" element={<Movies/>}/>
-          <Route path="/admin/movies/add" element={<AddMovie/>}/>
-          <Route path="/admin/movies/:id/edit" element={<EditMovie/>}/>
-      </Routes>
-      </UserProvider>
+        <UserProvider>
+          <Routes>
+            <Route path="/" element={<Stats />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/add" element={<AddUsers />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/add" element={<AddMovie />} />
+            <Route path="/movies/:id/edit" element={<EditMovie />} />
+          </Routes>
+        </UserProvider>
       </MovieProvider>
     </div>
   );
