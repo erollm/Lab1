@@ -21,7 +21,6 @@ function MoviePage() {
       //                       watchlist/movie_id/User_id
       if (user !== null) {
         const request = await axios.get(`api/watchlist/${movieId}/${user.id}`);
-        console.log(user.id);
         setWatchlistRow(request.data);
         return;
       }
@@ -165,7 +164,9 @@ function MoviePage() {
       </div>
       <div>
         <video width="100%" height="100%" controls onEnded={endVideo}>
-          <source src={video} />
+          <source
+            src={require(`../assets/videos/${movie.data.video_location}`)}
+          />
         </video>
       </div>
     </div>
