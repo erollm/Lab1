@@ -21,6 +21,7 @@ export default function index(){
       <Routes>
           <Route path="/admin" element={<Stats/>}/>
           <Route path="/admin/users" element={<Users/>}/>
+          <Route path="/admin/users/add" element ={<AddUsers/>}/>
           <Route path="/admin/movies" element={<Movies/>}/>
       </Routes>
       </UserProvider>
