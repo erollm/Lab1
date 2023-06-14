@@ -24,7 +24,7 @@ export default function Banner() {
     fetchData();
   }, []);
 
-  if (movie === null) {
+  if (movie === null || !movie.length > 0) {
     return;
   }
 

@@ -10,16 +10,15 @@ function Row({ title, fetchUrl, large = false }) {
 
   useEffect(() => {
     async function fetchData() {
-      console.log(await csrf());
       const request = await axios.get(fetchUrl);
       setMovie(request.data);
       return;
     }
     fetchData();
-  }, [title, fetchUrl]);
-  if (!Array.isArray(movie)) {
-    // Handle non-array response (error or unexpected data)
-    return <div>Error: Failed to fetch movies.</div>;
+  }, [fetchUrl]);
+
+  if (movie === null || !movie.length > 0) {
+    return;
   }
 
   return (
