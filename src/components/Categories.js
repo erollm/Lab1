@@ -39,7 +39,7 @@ export default function  Categories() {
                         </TabPanel>
                         <TabPanel>
                             <div className="categoriesResultsContainer">
-                                <CategoryMovies title="Documentary" fetchUrl={request.fetchDocumentaryMovies} />
+                                <CategoryMovies title="Documentaries" fetchUrl={request.fetchDocumentariesMovies} />
                             </div>
                         </TabPanel>
                         <TabPanel>
