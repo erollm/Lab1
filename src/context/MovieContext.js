@@ -8,8 +8,10 @@ export const MovieProvider = ({children}) => {
   const queryParams = new URLSearchParams(window.location.search);
   const movieId = queryParams.get("movie_id");
   const base_url = "https://image.tmdb.org/t/p/original";
+  const apiKEY= "2fad590bc404e4e882a683070f03d08b";
 
   const [movies, setMovies] = useState(null);
+  const [movieApi, setMovieApi] = useState();
 
   const getMovies = async() => {
     const request = await axios.get(`api/v1/movies/`);
@@ -21,8 +23,12 @@ export const MovieProvider = ({children}) => {
     getMovies();
   }
   
+  const getMovieApi = async (id) =>{
+    const movieGet = await axios.get(`https://api.themoviedb.org/3/movie/11??api_key=${apiKEY}`);
+    setMovieApi(movieGet);
+  }
    
-  return <MovieContext.Provider value={{movies, getMovies, deleteMovie}}>{children}</MovieContext.Provider>
+  return <MovieContext.Provider value={{movies, getMovies, deleteMovie, movieApi, getMovieApi}}>{children}</MovieContext.Provider>
 };
 
 export default MovieContext;
