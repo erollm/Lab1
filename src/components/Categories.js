@@ -1,50 +1,56 @@
-import demonSlayer from "../assets/images/covers/demonslayer.webp";
-import dragonBall from "../assets/images/covers/dragonballbroly.jpg";
-import naruto from "../assets/images/covers/naruto.webp";
-import onePiece from "../assets/images/covers/onepiecefilmred.webp";
-import silentVoice from "../assets/images/covers/silentvoice.jpg";
-import spiritedAway from "../assets/images/covers/spiritedaway.jpg";
-import totoro from "../assets/images/covers/totoro.jpg";
-import weatheringWithYou from "../assets/images/covers/weatheringwithyou.jpg";
-import yourName from "../assets/images/covers/yourname.jpg";
+import React from "react";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import CategoryMovies from "./CategoryMovies";
+import request from "../request";
 
-const Categories = () => {
+export default function  Categories() {
     return(
         <div className="Categories container">
-            <div className="CategoriesContainer row">
-                <div className="categoriesList col-md-2">
-                    <ul>
-                        <li>Action</li>
-                        <li>Adventure</li>
-                        <li>Animated</li>
-                        <li>Anime</li>
-                        <li>Comedy</li>
-                        <li>Documentary</li>
-                        <li>Drama</li>
-                        <li>Horror</li>
-                        <li>Mystery</li>
-                        <li>Romance</li>
-                        <li>Thriller</li>
-                        <li>Other</li>
-                        <li>other</li>
-                    </ul>
-                </div>
-                <div className="categoriesResults col-md-10">
-                    <div className="categoriesResultsContainer">
-                        <img src={demonSlayer} alt=""/>
-                        <img src={dragonBall} alt=""/>
-                        <img src={naruto} alt=""/>
-                        <img src={onePiece} alt=""/>
-                        <img src={silentVoice} alt=""/>
-                        <img src={spiritedAway} alt=""/>
-                        <img src={totoro} alt=""/>
-                        <img src={weatheringWithYou} alt=""/>
-                        <img src={yourName} alt=""/>
+            <div className="CategoriesContainer">
+                <Tabs className="row">
+
+
+                    {/*    <ul>*/}
+                    <div className="categoriesList col-md-2">
+                            <TabList>
+                                <Tab>Action</Tab>
+                                <Tab>Horror</Tab>
+                                <Tab>Comedy</Tab>
+                                <Tab>Documentary</Tab>
+                                <Tab>Romance</Tab>
+                            </TabList>
+                    {/*    </ul>*/}
                     </div>
-                </div>
+                    <div className="categoriesResults col-md-10">
+                        <TabPanel>
+                            <div className="categoriesResultsContainer">
+                                <CategoryMovies title="Action" fetchUrl={request.fetchActionMovies} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="categoriesResultsContainer">
+                                <CategoryMovies title="Horror" fetchUrl={request.fetchHorrorMovies} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="categoriesResultsContainer">
+                                <CategoryMovies title="Comedy" fetchUrl={request.fetchComedyMovies} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="categoriesResultsContainer">
+                                <CategoryMovies title="Documentary" fetchUrl={request.fetchDocumentaryMovies} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="categoriesResultsContainer">
+                                <CategoryMovies title="Romance" fetchUrl={request.fetchRomanceMovies} />
+                            </div>
+                        </TabPanel>
+                    </div>
+                </Tabs>
             </div>
         </div>
     );
 }
 
-export default Categories;
