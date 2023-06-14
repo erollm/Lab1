@@ -9,23 +9,25 @@ import useAuthContext from "../context/AuthContext.js";
 import video from "../assets/videos/video.mp4";
 
 function MoviePage() {
+  const { user, logout } = useAuthContext();
+  const [movie, setMovie] = useState(null);
+  const [watchlistRow, setWatchlistRow] = useState(null);
   const queryParams = new URLSearchParams(window.location.search);
   const movieId = queryParams.get("movie_id");
   const base_url = "https://image.tmdb.org/t/p/original";
 
-  const [movie, setMovie] = useState(null);
-  const [watchlistRow, setWatchlistRow] = useState(null);
-  const { user, logout } = useAuthContext();
-
   useEffect(() => {
     async function fetchWatchlistRow() {
       //                       watchlist/movie_id/User_id
-      const request = await axios.get(`api/watchlist/${movieId}/2`);
-      setWatchlistRow(request.data);
-      return;
+      if (user !== null) {
+        const request = await axios.get(`api/watchlist/${movieId}/${user.id}`);
+        console.log(user.id);
+        setWatchlistRow(request.data);
+        return;
+      }
     }
     fetchWatchlistRow();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     async function fetchData() {
@@ -46,6 +48,7 @@ function MoviePage() {
       if (Object.keys(watchlistRow).length > 0) {
         async function putData() {
           const request = await axios.put(`/api/watchlist/put`, userData);
+          setWatchlistRow(userData);
           console.log("exec watched put");
         }
         putData();
@@ -54,10 +57,14 @@ function MoviePage() {
           const request = await axios.post(`/api/watchlist`, userData);
           console.log("exec watched");
         }
-
         postData();
       }
     }
+
+    const timer = setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    return () => clearTimeout(timer);
   };
 
   //  ==== WATCHLIST ====
@@ -83,7 +90,12 @@ function MoviePage() {
         postData();
       }
     }
+    const timer = setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    return () => clearTimeout(timer);
   };
+
   const addBookmark = () => {
     if (movie !== null) {
       const userData = {
@@ -91,7 +103,6 @@ function MoviePage() {
         movie_id: movieId,
         bookmarked: true,
       };
-
       if (Object.keys(watchlistRow).length > 0) {
         async function putData() {
           const request = await axios.put(`/api/watchlist/put`, userData);
@@ -107,6 +118,10 @@ function MoviePage() {
         postData();
       }
     }
+    const timer = setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    return () => clearTimeout(timer);
   };
 
   if (movie === null) {

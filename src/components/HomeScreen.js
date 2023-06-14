@@ -5,6 +5,9 @@ import Row from "./Row";
 import request from "../request.js";
 
 export default function HomeScreen() {
+  const timer = setTimeout(() => {}, 50);
+  clearTimeout(timer);
+
   return (
     <div className="homeScreen">
       <Banner />
