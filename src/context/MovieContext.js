@@ -15,8 +15,13 @@ export const MovieProvider = ({children}) => {
     const request = await axios.get(`api/v1/movies/`);
     setMovies(request.data.data);
   }
+
+  const deleteMovie = async (id) =>{
+    await axios.delete("/api/v1/movies/"+id);
+    getMovies();
+  }
    
-  return <MovieContext.Provider value={{movies, getMovies}}>{children}</MovieContext.Provider>
+  return <MovieContext.Provider value={{movies, getMovies, deleteMovie}}>{children}</MovieContext.Provider>
 };
 
 export default MovieContext;

@@ -43,7 +43,7 @@ export default function Movies() {
             </thead>
             <tbody>
               {movies.map((movie) => (
-                <MTableRow key={movie.id} img={movie.poster_path} title={movie.title} desc={movie.description} createdat={movie.created_at}/>
+                <MTableRow key={movie.id} img={movie.poster_path} title={movie.title} desc={movie.description} createdat={movie.created_at} id={movie.id}/>
               ))}
             </tbody>
           </table>
