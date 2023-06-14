@@ -6,7 +6,7 @@ import request from "../request.js";
 function WatchLater() {
   // state and effect declaration
 
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   // url of photos in API
   const base_url = "https://image.tmdb.org/t/p/original";
@@ -19,6 +19,10 @@ function WatchLater() {
     }
     fetchData();
   }, []);
+
+  if (movie === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

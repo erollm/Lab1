@@ -23,24 +23,25 @@ function SearchPage() {
   }
 
   return (
-      <div className="searchPage container">
-        <div className="searchPageContainer">
-          <div className="searchPageTitle">
-            <h2>{query ? `Results for : ${query} ` : null}</h2>
-          </div>
-          <div className="searchPageResults">
-            {movie.map((movie) => (
-                <a href={`/MoviePage?movie_id=${movie.id}`}>
-                  <img
-                      key={movie.id}
-                      src={`${base_url}${movie.poster_path}`}
-                      alt={movie.name}
-                  />
-                </a>
-            ))}
-          </div>
+
+    <div className="searchPage container">
+      <div className="searchPageContainer">
+        <div className="searchPageTitle">
+          <h2>{query ? `Results for : ${query} ` : null}</h2>
+        </div>
+        <div className="searchPageResults">
+          {movie.map((movie) => (
+            <a href={`/MoviePage?movie_id=${movie.id}`}>
+              <img
+                key={movie.id}
+                src={`${base_url}${movie.poster_path}`}
+                alt={movie.name}
+              />
+            </a>
+          ))}
         </div>
       </div>
+    </div>
   );
 }
 export default SearchPage;
