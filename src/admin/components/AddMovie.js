@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
+import MovieContext from "../../context/MovieContext";
 
 
 export default function AddMovie() {
+    const { movieApi, getMovieApi } = useContext(MovieContext);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchMovies = async () => {
+        await getMovieApi(11);
+        setLoading(false);
+      };
+  
+      fetchMovies();
+    }, []);
+  
+    if (loading) {
+      return <p>Loading movies...</p>;
+    }
+    console.log(movieApi)
     return (
         <div className="adminContainer">
             <div className="SContainer">
