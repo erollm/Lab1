@@ -13,6 +13,7 @@ import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
 import AuthLayout from "./layouts/AuthLayout.js";
 import GuestLayout from "./layouts/GuestLayout.js";
+import AdminLayout from "./layouts/AdminLayout.js";
 
 function App() {
   return (
@@ -27,13 +28,14 @@ function App() {
         <Route path="/MoviePage" element={[<Navbar />, <MoviePage />]} />
         <Route path="/Categories" element={[<Navbar />, <Categories />]} />
         <Route path="/Profile" element={[<Navbar />, <Profile />]} />
+        </Route>
+        <Route element={<AdminLayout/>}>
         <Route path="/admin/*" element={<Admin />} />
         </Route>
         <Route element={<GuestLayout/>}>
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         </Route>
-
       </Routes>
     </>
   );

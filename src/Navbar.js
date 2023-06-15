@@ -6,6 +6,9 @@ import { ReactComponent as WatchLaterIcon } from "./assets/icons/clock.svg";
 import { ReactComponent as UserIcon } from "./assets/icons/user.svg";
 import useAuthContext from "./context/AuthContext";
 import { Link } from "react-router-dom";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faToolbox } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   function submitSearch(event) {
@@ -85,8 +88,13 @@ const Navbar = () => {
               </Link>
             </li>
             {user && (
-              <li className="nav-item">
-                <button onClick={logout}>Logout</button>
+              <li className="nav-item d-flex align-items-center me-2">
+               <FontAwesomeIcon onClick={logout} role='button' icon={faArrowRightFromBracket}/>
+              </li>
+            )}
+            {user && user.role === "admin" && (
+              <li className="nav-item d-flex align-items-center">
+                <Link to="/admin"><FontAwesomeIcon icon={faToolbox} /></Link>
               </li>
             )}
           </ul>
