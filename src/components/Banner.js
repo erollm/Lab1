@@ -33,16 +33,16 @@ export default function Banner() {
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
       }}
     >
       <div className="banner_contents">
-        <h1>{movie.title}</h1>
+        <h1>{movie?.title}</h1>
         <div className="banner_buttons">
           <a href="/">
             <button className="banner_button play_button">Play</button>
           </a>
-          <a href={`/MoviePage?movie_id=${movie.id}`}>
+          <a href={`/MoviePage?movie_id=${movie?.id}`}>
             <button className="banner_button info_button">More Info</button>
           </a>
         </div>
