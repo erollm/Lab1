@@ -24,8 +24,8 @@ export default function Banner() {
     fetchData();
   }, []);
 
-  if (movie === null || !movie.length > 0) {
-    return;
+  if (movie === null) {
+    return <div>Loading...</div>;
   }
 
   //   KTHIMI I JSX
