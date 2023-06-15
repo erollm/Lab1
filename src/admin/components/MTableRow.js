@@ -12,7 +12,7 @@ export default function MTableRow(props){
         <td>{props.title}</td>
         <td>{description}</td>
         <td>{createdat}</td>
-        <td><button className="btn btn-outline-warning btn-sm firstB">EDIT</button><button class="btn btn-outline-danger btn-sm" onClick={()=>deleteMovie(props.id)}>DELETE</button></td>
+        <td><button class="btn btn-outline-danger btn-sm" onClick={()=>deleteMovie(props.id)}>DELETE</button></td>
     </tr>
     )
 }

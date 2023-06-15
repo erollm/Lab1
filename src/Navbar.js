@@ -5,6 +5,7 @@ import { ReactComponent as BookmarkIcon } from "./assets/icons/bookmark.svg";
 import { ReactComponent as WatchLaterIcon } from "./assets/icons/clock.svg";
 import { ReactComponent as UserIcon } from "./assets/icons/user.svg";
 import useAuthContext from "./context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   function submitSearch(event) {
@@ -35,13 +36,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link text-white active"
                 aria-current="page"
-                href="/Categories"
+                to="/Categories"
               >
                 Categories
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0" id="navbarListIcon">
@@ -57,31 +58,31 @@ const Navbar = () => {
               </div>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
                 aria-current="page"
-                href="/MyLibrary"
+                to="/MyLibrary"
               >
                 <BookmarkIcon />
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
                 aria-current="page"
-                href="/WatchLater"
+                to="/WatchLater"
               >
                 <WatchLaterIcon />
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active "
                 aria-current="page"
-                href="/Profile"
+                to="/Profile"
               >
                 <UserIcon />
-              </a>
+              </Link>
             </li>
             {user && (
               <li className="nav-item">

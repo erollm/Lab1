@@ -20,6 +20,7 @@ export const AuthProvider = ({children}) => {
             console.log(e)
         }
     }
+
     const login = async ({...data}) =>{
         await csrf()
         try{
@@ -59,15 +60,10 @@ export const AuthProvider = ({children}) => {
         }
       };
      useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (!user && !storedUser) {
+        if(!user){
           getUser();
-        } else if (user) {
-          localStorage.setItem("user", JSON.stringify(user));
-        } else {
-          setUser(JSON.parse(storedUser));
         }
-      }, [user]);
+      }, []);
 
     return <AuthContext.Provider value={{user, errors, getUser, login, register, logout}}>
         {children}

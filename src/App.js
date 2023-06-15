@@ -11,11 +11,14 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
+import AuthLayout from "./layouts/AuthLayout.js";
+import GuestLayout from "./layouts/GuestLayout.js";
 
 function App() {
   return (
     <>
       <Routes>
+        <Route element={<AuthLayout/>}>
         <Route path="/" element={[<Navbar />, <HomeScreen />]} />
         <Route path="/HomeScreen" element={[<Navbar />, <HomeScreen />]} />
         <Route path="/SearchPage" element={[<Navbar />, <SearchPage />]} />
@@ -24,9 +27,13 @@ function App() {
         <Route path="/MoviePage" element={[<Navbar />, <MoviePage />]} />
         <Route path="/Categories" element={[<Navbar />, <Categories />]} />
         <Route path="/Profile" element={[<Navbar />, <Profile />]} />
+        <Route path="/admin/*" element={<Admin />} />
+        </Route>
+        <Route element={<GuestLayout/>}>
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/admin/*" element={<Admin />} />
+        </Route>
+
       </Routes>
     </>
   );

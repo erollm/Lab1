@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../assets/css/Inputs.css";
 import useAuthContext from "../context/AuthContext";
 
@@ -26,7 +27,7 @@ export default function Login() {
 					<p>Remember Me</p>
 				</span>
 				<span className="inputFooter">
-				<p>New to CineView?</p><a href="/Signup">Sign up now.</a>
+				<p>New to CineView?</p><Link to="/Signup">Sign up now.</Link>
 				</span>
 			</form>
 		</div>
