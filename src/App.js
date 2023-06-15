@@ -13,13 +13,11 @@ import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
 import AuthLayout from "./layouts/AuthLayout.js";
 import GuestLayout from "./layouts/GuestLayout.js";
-import Test from "./test.js";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/test" element={<Test />} />
         <Route element={<AuthLayout />}>
           <Route path="/" element={[<Navbar />, <HomeScreen />]} />
           <Route path="/HomeScreen" element={[<Navbar />, <HomeScreen />]} />
