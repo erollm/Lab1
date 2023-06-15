@@ -13,27 +13,28 @@ import MyLibrary from "./components/MyLibrary";
 import Admin from "./admin/index.jsx";
 import AuthLayout from "./layouts/AuthLayout.js";
 import GuestLayout from "./layouts/GuestLayout.js";
+import Test from "./test.js";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route element={<AuthLayout/>}>
-        <Route path="/" element={[<Navbar />, <HomeScreen />]} />
-        <Route path="/HomeScreen" element={[<Navbar />, <HomeScreen />]} />
-        <Route path="/SearchPage" element={[<Navbar />, <SearchPage />]} />
-        <Route path="/MyLibrary" element={[<Navbar />, <MyLibrary />]} />
-        <Route path="/WatchLater" element={[<Navbar />, <WatchLater />]} />
-        <Route path="/MoviePage" element={[<Navbar />, <MoviePage />]} />
-        <Route path="/Categories" element={[<Navbar />, <Categories />]} />
-        <Route path="/Profile" element={[<Navbar />, <Profile />]} />
-        <Route path="/admin/*" element={<Admin />} />
+        <Route path="/test" element={<Test />} />
+        <Route element={<AuthLayout />}>
+          <Route path="/" element={[<Navbar />, <HomeScreen />]} />
+          <Route path="/HomeScreen" element={[<Navbar />, <HomeScreen />]} />
+          <Route path="/SearchPage" element={[<Navbar />, <SearchPage />]} />
+          <Route path="/MyLibrary" element={[<Navbar />, <MyLibrary />]} />
+          <Route path="/WatchLater" element={[<Navbar />, <WatchLater />]} />
+          <Route path="/MoviePage" element={[<Navbar />, <MoviePage />]} />
+          <Route path="/Categories" element={[<Navbar />, <Categories />]} />
+          <Route path="/Profile" element={[<Navbar />, <Profile />]} />
+          <Route path="/admin/*" element={<Admin />} />
         </Route>
-        <Route element={<GuestLayout/>}>
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Signup" element={<Signup />} />
+        <Route element={<GuestLayout />}>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
         </Route>
-
       </Routes>
     </>
   );
