@@ -8,7 +8,7 @@ export const MovieProvider = ({children}) => {
   const queryParams = new URLSearchParams(window.location.search);
   const movieId = queryParams.get("movie_id");
   const base_url = "https://image.tmdb.org/t/p/original";
-  const apiKEY= "2fad590bc404e4e882a683070f03d08b";
+  const apiKEY = "936d16ae1972d9e8cd0201c20b0dcfc3";
   const navigate = useNavigate();
 
   const initialValues = {

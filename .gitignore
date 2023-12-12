@@ -28,3 +28,4 @@ yarn-error.log*
 /src/assets/css/admin.css
 /.gitignore
 /.gitignore
+/.vs/Lab1-Front
